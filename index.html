@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lancashire Links — England's Golf Coast 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep:   #0F2A1A;
+    --green-dark:   #1B4D2E;
+    --green-mid:    #2E7D46;
+    --green-light:  #4A9E62;
+    --gold:         #C9A84C;
+    --gold-light:   #E8C97A;
+    --gold-pale:    #F5E9C8;
+    --cream:        #FAF8F3;
+    --cream-dark:   #F0EDE4;
+    --ink:          #1A1A1A;
+    --text-body:    #2C2C2C;
+    --text-mid:     #555;
+    --text-light:   #888;
+    --white:        #FFFFFF;
+    --rule:         rgba(201,168,76,0.35);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text-body);
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ──────────────────────────────────────────────────────────── */
+  .hero {
+    background: var(--green-deep);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 40px 60px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 110%, rgba(46,125,70,0.25) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 20% 20%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 59px,
+        rgba(201,168,76,0.04) 59px,
+        rgba(201,168,76,0.04) 60px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 59px,
+        rgba(201,168,76,0.04) 59px,
+        rgba(201,168,76,0.04) 60px
+      );
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 8vw, 110px);
+    font-weight: 900;
+    color: var(--white);
+    text-align: center;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.35s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-rule {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 28px auto;
+    opacity: 0;
+    animation: fadeIn 1s 0.6s forwards;
+  }
+
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: rgba(255,255,255,0.65);
+    text-align: center;
+    max-width: 600px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s forwards;
+  }
+
+  .hero-courses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 20px;
+    max-width: 700px;
+    margin-bottom: 64px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.85s forwards;
+  }
+
+  .hero-courses span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .hero-courses span::before { content: '·  '; color: var(--gold); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: fadeIn 1s 1.2s forwards;
+  }
+
+  .hero-scroll span {
+    display: block;
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    margin: 8px auto 0;
+    animation: scrollPulse 2s 1.5s infinite;
+  }
+
+  .hero-scroll p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+  }
+
+  /* ── NAV ─────────────────────────────────────────────────────────────── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--green-deep);
+    border-bottom: 1px solid var(--rule);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar { display: none; }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    min-width: max-content;
+    padding: 0 32px;
+    gap: 0;
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 16px 16px 16px 0;
+    border-right: 1px solid var(--rule);
+    margin-right: 4px;
+    white-space: nowrap;
+  }
+
+  .nav a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    padding: 10px 12px;
+    white-space: nowrap;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .nav a .nav-date {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    font-family: 'Cormorant Garamond', serif;
+    transition: color 0.2s;
+  }
+
+  .nav a:hover .nav-date { color: var(--gold-light); }
+
+  .nav a:hover { color: var(--gold-light); border-bottom-color: var(--gold); }
+
+  /* ── COURSE SECTION ──────────────────────────────────────────────────── */
+  .course {
+    padding: 0 0 80px;
+    border-bottom: 1px solid var(--rule);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .course.visible { opacity: 1; transform: none; }
+
+  /* Course header band */
+  .course-header {
+    background: var(--green-dark);
+    padding: 56px 80px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .course-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .course-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .course-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    position: absolute;
+    right: 60px;
+    top: 10px;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .course-date-badge {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 5px 14px;
+    margin-bottom: 20px;
+  }
+
+  .course-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .course-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* Course body */
+  .course-body {
+    padding: 56px 80px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Two-col layout */
+  .course-cols {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 56px;
+    align-items: start;
+  }
+
+  /* Stats card */
+  .stats-card {
+    background: var(--green-deep);
+    padding: 28px;
+    position: sticky;
+    top: 60px;
+  }
+
+  .stats-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .stat-row:last-child { border-bottom: none; }
+
+  .stat-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    min-width: 100px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .stat-value {
+    font-family: 'Crimson Text', serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.4;
+  }
+
+  .tour-link {
+    display: block;
+    margin-top: 20px;
+    padding: 12px 16px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .tour-link:hover {
+    background: rgba(201,168,76,0.2);
+    border-color: var(--gold);
+  }
+
+  .tour-link-label {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .tour-link-url {
+    font-family: 'Crimson Text', serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    word-break: break-all;
+  }
+
+  /* Section headings */
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 60px;
+  }
+
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 16px;
+    margin-top: 40px;
+  }
+
+  .section-heading:first-child { margin-top: 0; }
+
+  .prose {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-body);
+    margin-bottom: 8px;
+  }
+
+  /* Bullet lists */
+  .item-list {
+    list-style: none;
+    margin: 8px 0 16px;
+  }
+
+  .item-list li {
+    font-size: 16px;
+    color: var(--text-body);
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    line-height: 1.6;
+  }
+
+  .item-list li:last-child { border-bottom: none; }
+
+  .item-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--green-mid);
+    font-weight: 600;
+  }
+
+  /* Pairings table */
+  .pairings-wrap {
+    margin: 8px 0 16px;
+    overflow-x: auto;
+  }
+
+  .pairings-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 480px;
+  }
+
+  .pairings-table thead tr {
+    background: var(--green-dark);
+  }
+
+  .pairings-table thead th {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 400;
+  }
+
+  .pairings-table tbody tr:nth-child(odd)  { background: var(--cream-dark); }
+  .pairings-table tbody tr:nth-child(even) { background: var(--cream); }
+
+  .pairings-table tbody td {
+    padding: 12px 16px;
+    font-size: 16px;
+    color: var(--text-body);
+  }
+
+  .pairings-table tbody td:first-child {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--green-dark);
+    font-size: 15px;
+  }
+
+  /* Fun facts */
+  .facts-grid {
+    display: grid;
+    gap: 12px;
+    margin: 8px 0 16px;
+  }
+
+  .fact-item {
+    background: var(--gold-pale);
+    border-left: 3px solid var(--gold);
+    padding: 14px 18px;
+    font-size: 16px;
+    color: #4A3800;
+    line-height: 1.6;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .fact-item::before {
+    content: '⛳';
+    flex-shrink: 0;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  /* Upcoming events */
+  .events-list {
+    display: grid;
+    gap: 10px;
+    margin: 8px 0 16px;
+  }
+
+  .event-item {
+    background: var(--green-deep);
+    border-left: 3px solid var(--gold);
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .event-star {
+    color: var(--gold);
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .event-text {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+  }
+
+  .event-text strong {
+    color: var(--gold-light);
+    font-style: normal;
+    display: block;
+    margin-bottom: 3px;
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+  }
+
+  /* Insider tip */
+  .insider-tip {
+    background: var(--cream-dark);
+    border-left: 4px solid var(--green-dark);
+    padding: 20px 24px;
+    margin: 32px 0 0;
+  }
+
+  .insider-tip-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .insider-tip p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--text-body);
+    line-height: 1.6;
+  }
+
+  /* ── INTRO ────────────────────────────────────────────────────────────── */
+  .intro {
+    background: var(--green-dark);
+    padding: 72px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .intro::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 400px;
+    color: rgba(255,255,255,0.03);
+    position: absolute;
+    left: 40px;
+    top: -80px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .intro-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+
+  .intro-inner .section-label {
+    justify-content: center;
+    color: var(--gold);
+  }
+
+  .intro-inner .section-label::after,
+  .intro-inner .section-label::before {
+    content: '';
+    flex: none;
+    width: 40px;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .intro-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(20px, 3vw, 28px);
+    color: var(--white);
+    line-height: 1.5;
+    margin: 24px 0 28px;
+  }
+
+  .intro-body {
+    font-size: 17px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ───────────────────────────────────────────────────────────── */
+  .footer {
+    background: var(--green-deep);
+    padding: 56px 80px;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+  }
+
+  .footer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .footer-title em { color: var(--gold-light); font-style: italic; }
+
+  .footer-body {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    max-width: 560px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+
+  .footer-rule {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 24px;
+  }
+
+  .footer-sign {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  /* ── ANIMATIONS ───────────────────────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50%       { opacity: 1;   transform: scaleY(1.15); }
+  }
+
+  /* ── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .course-header { padding: 40px 32px 36px; }
+    .course-body   { padding: 40px 32px 0; }
+    .course-cols   { grid-template-columns: 1fr; gap: 36px; }
+    .stats-card    { position: static; }
+    .intro         { padding: 56px 32px; }
+    .footer        { padding: 48px 32px; }
+    .course-num    { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .course-header { padding: 32px 20px 28px; }
+    .course-body   { padding: 28px 20px 0; }
+    .intro         { padding: 40px 20px; }
+    .footer        { padding: 40px 20px; }
+    .hero          { padding: 60px 24px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <p class="hero-eyebrow">Snyder &amp; Meister · England's Golf Coast · May 2026</p>
+  <h1 class="hero-title"><em>Lancashire</em><br>Links</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-subtitle">A Traveller's Companion to Six Great Courses of the Sefton Coast &amp; Wirral</p>
+  <div class="hero-courses">
+    <span>Hillside</span>
+    <span>Royal Lytham &amp; St Annes</span>
+    <span>Royal Liverpool</span>
+    <span>West Lancashire</span>
+    <span>Southport &amp; Ainsdale</span>
+    <span>Royal Birkdale</span>
+  </div>
+  <div class="hero-scroll">
+    <p>Scroll</p>
+    <span></span>
+  </div>
+</section>
+
+<!-- ── NAV ──────────────────────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">Lancashire Links</div>
+    <a href="#hillside">Hillside<span class="nav-date">Wed 13 May</span></a>
+    <a href="#lytham">Royal Lytham<span class="nav-date">Thu 14 May</span></a>
+    <a href="#liverpool">Royal Liverpool<span class="nav-date">Fri 15 May</span></a>
+    <a href="#westlancs">West Lancs<span class="nav-date">Sat 16 May</span></a>
+    <a href="#sa">Southport &amp; Ainsdale<span class="nav-date">Sun 17 May</span></a>
+    <a href="#birkdale">Royal Birkdale<span class="nav-date">Mon 18 May</span></a>
+  </div>
+</nav>
+
+<!-- ── INTRO ────────────────────────────────────────────────────────────── -->
+<section class="intro">
+  <div class="intro-inner">
+    <p class="section-label">The Course</p>
+    <p class="intro-quote">"Within thirty miles of coastline lies the greatest concentration of links golf on earth."</p>
+    <p class="intro-body">The stretch of land between the Wirral Peninsula and Southport contains a density of world-class links golf found nowhere else. Two Open Championship venues of the very highest order. One of the most historically significant courses in the amateur game. And three clubs that would be the jewels of any other county in England.<br><br>What unites all six is the wind. Respect it — and you will have the time of your golfing life.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     COURSE 1 · HILLSIDE
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="course" id="hillside">
+  <div class="course-header"><div class="course-header-inner">
+    <div class="course-num">01</div>
+    <div class="course-date-badge">Wednesday, 13 May 2026</div>
+    <h2 class="course-name">Hillside Golf Club</h2>
+    <p class="course-tagline">The Hidden Gem of the Sefton Coast</p>
+  </div></div>
+  <div class="course-body">
+    <div class="course-cols">
+      <!-- Main content -->
+      <div>
+        <p class="section-label">Overview</p>
+        <p class="prose">Hillside Golf Club sits immediately adjacent to Royal Birkdale and is widely regarded as one of the finest courses in Britain that has not yet hosted The Open Championship. The course winds through dramatic linksland, towering sand dunes, and pine-lined avenues that give it an almost dual personality: pure seaside links on the back nine and a more sheltered, woodland-tinged character on the front.</p>
+
+        <h3 class="section-heading">History &amp; Heritage</h3>
+        <p class="prose">Founded in 1911, Fred Hawtree's significant redesign in 1967 transformed the back nine, routing it through the dune ridges and creating several holes regarded among the most beautiful in England. The course regularly acts as a final qualifying venue for The Open Championship when held at Birkdale.</p>
+
+        <h3 class="section-heading">Tee Time Pairings</h3>
+        <div class="pairings-wrap">
+          <table class="pairings-table">
+            <thead><tr><th>Tee Time</th><th>Player 1</th><th>Player 2</th><th>Player 3</th><th>Player 4</th></tr></thead>
+            <tbody>
+              <tr><td>2:00 PM</td><td>Snyder</td><td>Kurtz</td><td>Amar</td><td>Demmer</td></tr>
+              <tr><td>2:10 PM</td><td>CJ</td><td>Piche</td><td>Meister</td><td>Burns</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="section-heading">Notable Championships</h3>
+        <ul class="item-list">
+          <li>PGA Championship of GB &amp; Ireland (1982 &amp; 2016)</li>
+          <li>Open Championship Final Qualifying (regularly)</li>
+          <li>English Amateur Championship</li>
+          <li>Multiple European Tour events</li>
+        </ul>
+
+        <h3 class="section-heading">Fun Facts &amp; Folklore</h3>
+        <div class="facts-grid">
+          <div class="fact-item">Shares a boundary fence with Royal Birkdale — the two courses run essentially side by side, separated only by a fence.</div>
+          <div class="fact-item">Several of Hillside's back nine holes are considered equal to anything at its Open-hosting neighbour next door.</div>
+          <div class="fact-item">The 17th hole, a sweeping par-5 routed through towering dunes, is regularly cited as one of the finest holes in England.</div>
+          <div class="fact-item">Tour professionals routinely use Hillside for practice rounds during Open Championship week at Birkdale.</div>
+          <div class="fact-item">Fred Hawtree's 1967 redesign of the back nine is regarded as one of the most inspired routing jobs in British links golf.</div>
+          <div class="fact-item">The club has hosted the PGA Championship of Great Britain &amp; Ireland on multiple occasions, including 1982 and 2016.</div>
+        </div>
+
+        <h3 class="section-heading">Upcoming Major Events</h3>
+        <div class="events-list">
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>Open Championship Final Qualifying — July 2026</strong>Selected as a qualifying venue for The 154th Open Championship at Royal Birkdale. The world's top players outside the automatic exemptions will compete here for one of the final spots in the field.</div></div>
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>PGA Championship of GB &amp; Ireland</strong>Hillside has hosted this DP World Tour event multiple times and remains on the short list of venues for future editions.</div></div>
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>Ryder Cup Prospect</strong>While no date is confirmed, Hillside has been informally discussed as a potential future Ryder Cup venue given the quality of the course and its existing infrastructure from PGA Championship hosting.</div></div>
+        </div>
+
+        <div class="insider-tip">
+          <p class="insider-tip-label">Insider Tip</p>
+          <p>The back nine is where Hillside truly reveals itself — play it on a breezy day for the full experience.</p>
+        </div>
+      </div>
+
+      <!-- Stats sidebar -->
+      <div>
+        <div class="stats-card">
+          <p class="stats-card-title">At a Glance</p>
+          <div class="stat-row"><span class="stat-label">Founded</span><span class="stat-value">1911</span></div>
+          <div class="stat-row"><span class="stat-label">Par</span><span class="stat-value">72</span></div>
+          <div class="stat-row"><span class="stat-label">Yardage</span><span class="stat-value">6,850 yards</span></div>
+          <div class="stat-row"><span class="stat-label">Architect</span><span class="stat-value">Fred Hawtree (redesigned 1967)</span></div>
+          <div class="stat-row"><span class="stat-label">Caddy Fee</span><span class="stat-value">£70 + gratuity (paid directly to caddy on the day)</span></div>
+          <div class="stat-row"><span class="stat-label">World Rank</span><span class="stat-value">Approx. #47</span></div>
+          <div class="stat-row"><span class="stat-label">England</span><span class="stat-value">Approx. #6</span></div>
+          <a class="tour-link" href="https://www.hillside-golfclub.co.uk/the-course/course-overview/" target="_blank">
+            <span class="tour-link-label">Hole-by-Hole Course Tour</span>
+            <span class="tour-link-url">hillside-golfclub.co.uk</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     COURSE 2 · ROYAL LYTHAM
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="course" id="lytham">
+  <div class="course-header"><div class="course-header-inner">
+    <div class="course-num">02</div>
+    <div class="course-date-badge">Thursday, 14 May 2026</div>
+    <h2 class="course-name">Royal Lytham &amp; St Annes Golf Club</h2>
+    <p class="course-tagline">Where Open History Was Written in Red Brick and Rough</p>
+  </div></div>
+  <div class="course-body">
+    <div class="course-cols">
+      <div>
+        <p class="section-label">Overview</p>
+        <p class="prose">Royal Lytham &amp; St Annes is one of the most storied venues in golf — an inland links surrounded by Victorian red-brick housing that delivers pure links golf through tight fairways, cavernous bunkers, and unpredictable bounces. The course has hosted The Open Championship eleven times and produced some of the most dramatic moments in the tournament's history.</p>
+
+        <h3 class="section-heading">History &amp; Heritage</h3>
+        <p class="prose">Founded in 1886, the club received its Royal designation in 1926 — the same year Bobby Jones won the first of his two Opens here, famously holing from a sandy lie at the 17th. Harry Colt's strategic bunkering philosophy is very much in evidence today across more than 200 bunkers.</p>
+
+        <h3 class="section-heading">Tee Time Pairings</h3>
+        <div class="pairings-wrap">
+          <table class="pairings-table">
+            <thead><tr><th>Tee Time</th><th>Player 1</th><th>Player 2</th><th>Player 3</th><th>Player 4</th></tr></thead>
+            <tbody>
+              <tr><td>11:10 AM</td><td>Snyder</td><td>CJ</td><td>Amar</td><td>Burns</td></tr>
+              <tr><td>11:20 AM</td><td>Piche</td><td>Kurtz</td><td>Meister</td><td>Demmer</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="section-heading">Open Championship Winners</h3>
+        <ul class="item-list">
+          <li>Bobby Jones (1926) — famously from a sandy lie at the 17th</li>
+          <li>Peter Thomson (1958)</li>
+          <li>Bob Charles (1963) — first left-hander to win The Open</li>
+          <li>Tony Jacklin (1969) — first British winner in 18 years</li>
+          <li>Gary Player (1974)</li>
+          <li>Seve Ballesteros (1979 &amp; 1988) — his second win here is considered his masterpiece</li>
+          <li>Tom Lehman (1996)</li>
+          <li>David Duval (2001)</li>
+          <li>Ernie Els (2012)</li>
+        </ul>
+
+        <h3 class="section-heading">Fun Facts &amp; Folklore</h3>
+        <div class="facts-grid">
+          <div class="fact-item">The only Open Championship venue that begins with a par-3 — the 1st hole plays at around 206 yards, a brutal opener under pressure.</div>
+          <div class="fact-item">Seve Ballesteros memorably drove into a car park adjacent to the 16th in 1979, took a free drop, and made par on his way to victory.</div>
+          <div class="fact-item">The course has over 200 bunkers — Harry Colt's philosophy was that every wayward shot should be punished, and Lytham delivers.</div>
+          <div class="fact-item">A bronze plaque on the 17th fairway marks the precise spot where Bobby Jones played his legendary recovery shot from a sandy lie in 1926.</div>
+          <div class="fact-item">The 1961 Ryder Cup was held here, won by the USA 14.5–9.5 — it remains the last time the match was played at Lytham.</div>
+          <div class="fact-item">Bob Charles, who won here in 1963, remains the only left-handed player ever to win The Open Championship.</div>
+        </div>
+
+        <h3 class="section-heading">Upcoming Major Events</h3>
+        <div class="events-list">
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>The Open Championship — Return Expected 2030s</strong>Having last hosted in 2012 (Ernie Els), Royal Lytham is expected to return to the Open rota. The R&amp;A has confirmed Lytham remains a valued venue.</div></div>
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>AIG Women's Open</strong>Lytham has hosted the Women's British Open and remains a candidate for future editions of this women's major.</div></div>
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>Ryder Cup Discussion</strong>Lytham hosted the 1961 Ryder Cup. Discussions around returning the match to traditional links venues have included Lytham as a future candidate.</div></div>
+        </div>
+
+        <div class="insider-tip">
+          <p class="insider-tip-label">Insider Tip</p>
+          <p>Stand on the 17th tee and find the plaque marking Jones's immortal 1926 shot — then try to make par yourself.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="stats-card">
+          <p class="stats-card-title">At a Glance</p>
+          <div class="stat-row"><span class="stat-label">Founded</span><span class="stat-value">1886</span></div>
+          <div class="stat-row"><span class="stat-label">Par</span><span class="stat-value">71</span></div>
+          <div class="stat-row"><span class="stat-label">Yardage</span><span class="stat-value">6,954 yards</span></div>
+          <div class="stat-row"><span class="stat-label">Architect</span><span class="stat-value">George Lowe; Harry Colt</span></div>
+          <div class="stat-row"><span class="stat-label">Caddy Fee</span><span class="stat-value">£80 + optional gratuity (paid directly to caddy on the day)</span></div>
+          <div class="stat-row"><span class="stat-label">Opens Hosted</span><span class="stat-value">11</span></div>
+          <div class="stat-row"><span class="stat-label">World Rank</span><span class="stat-value">Approx. #34</span></div>
+          <div class="stat-row"><span class="stat-label">England</span><span class="stat-value">Approx. #4</span></div>
+          <a class="tour-link" href="https://www.royallytham.org/golf/course-tour/hole-1/" target="_blank">
+            <span class="tour-link-label">Hole-by-Hole Course Tour</span>
+            <span class="tour-link-url">royallytham.org</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     COURSE 3 · ROYAL LIVERPOOL
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="course" id="liverpool">
+  <div class="course-header"><div class="course-header-inner">
+    <div class="course-num">03</div>
+    <div class="course-date-badge">Friday, 15 May 2026</div>
+    <h2 class="course-name">Royal Liverpool Golf Club</h2>
+    <p class="course-tagline">The Birthplace of British Golf's Grand Stage</p>
+  </div></div>
+  <div class="course-body">
+    <div class="course-cols">
+      <div>
+        <p class="section-label">Overview</p>
+        <p class="prose">Royal Liverpool — universally known as Hoylake — is one of the oldest and most revered links courses in England. Flat, exposed, and utterly unforgiving to the errant shot, it compensates with subtlety, history, and a bone-dry surface that makes club selection a constant intellectual exercise.</p>
+
+        <h3 class="section-heading">History &amp; Heritage</h3>
+        <p class="prose">Founded in 1869 on the site of a former racecourse, Hoylake hosted the very first Amateur Championship in 1885. It went nearly 40 years without hosting The Open before a triumphant return in 2006, where Tiger Woods claimed his 11th major in one of his most controlled and cerebral performances.</p>
+
+        <h3 class="section-heading">Tee Time Pairings</h3>
+        <div class="pairings-wrap">
+          <table class="pairings-table">
+            <thead><tr><th>Tee Time</th><th>Player 1</th><th>Player 2</th><th>Player 3</th><th>Player 4</th></tr></thead>
+            <tbody>
+              <tr><td>9:30 AM</td><td>Snyder</td><td>Piche</td><td>Amar</td><td>Meister</td></tr>
+              <tr><td>9:40 AM</td><td>Demmer</td><td>Burns</td><td>CJ</td><td>Kurtz</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="section-heading">Open Championship Winners</h3>
+        <ul class="item-list">
+          <li>Harold Hilton (1897, 1902) — the only amateur to win at Hoylake</li>
+          <li>John Henry Taylor (1913)</li>
+          <li>Walter Hagen (1924)</li>
+          <li>Bobby Jones (1930) — part of his legendary Grand Slam year</li>
+          <li>Tiger Woods (2006) — a masterclass in course management</li>
+          <li>Rory McIlroy (2014)</li>
+          <li>Brian Harman (2023) — dominant wire-to-wire victory</li>
+        </ul>
+
+        <h3 class="section-heading">Fun Facts &amp; Folklore</h3>
+        <div class="facts-grid">
+          <div class="fact-item">Tiger Woods used his 2-iron and 3-wood off nearly every tee in 2006, barely touching his driver all week — and still won by two shots.</div>
+          <div class="fact-item">Bobby Jones won here in 1930 as part of his legendary Grand Slam — the only player ever to hold all four major titles simultaneously.</div>
+          <div class="fact-item">The internal out-of-bounds 'cop' — a raised bank running along several holes — is one of the most distinctive and penal features in links golf anywhere in the world.</div>
+          <div class="fact-item">Brian Harman's 2023 wire-to-wire victory was one of the most dominant Open performances in decades, winning by 6 shots.</div>
+          <div class="fact-item">Hoylake has hosted 13 Open Championships and is one of the oldest clubs in England, founded in 1869.</div>
+          <div class="fact-item">The course has been stretched to over 7,300 yards for modern Opens, yet its strategic complexity remains rooted in 19th-century origins.</div>
+        </div>
+
+        <h3 class="section-heading">Upcoming Major Events</h3>
+        <div class="events-list">
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>The Open Championship — Return Expected Late 2020s / Early 2030s</strong>Following its successful 2023 staging, Hoylake is firmly back in the Open rota and widely expected to return soon.</div></div>
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>Walker Cup &amp; AIG Women's Open</strong>Hoylake hosted the Walker Cup in 1983 and is a strong candidate for future Walker Cup and Women's Open stagings.</div></div>
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>Ryder Cup Consideration</strong>Royal Liverpool has been part of broader conversations about bringing the Ryder Cup back to historic English links venues.</div></div>
+        </div>
+
+        <div class="insider-tip">
+          <p class="insider-tip-label">Insider Tip</p>
+          <p>Walk the 18th fairway and imagine Rory McIlroy's emotional final putt in 2014, tears streaming as he embraced his father.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="stats-card">
+          <p class="stats-card-title">At a Glance</p>
+          <div class="stat-row"><span class="stat-label">Founded</span><span class="stat-value">1869</span></div>
+          <div class="stat-row"><span class="stat-label">Par</span><span class="stat-value">72</span></div>
+          <div class="stat-row"><span class="stat-label">Yardage</span><span class="stat-value">7,385 yards</span></div>
+          <div class="stat-row"><span class="stat-label">Architect</span><span class="stat-value">Chambers &amp; Morris; Donald Steel</span></div>
+          <div class="stat-row"><span class="stat-label">Caddy Fee</span><span class="stat-value">£75 + gratuity (paid directly to caddy on the day)</span></div>
+          <div class="stat-row"><span class="stat-label">Opens Hosted</span><span class="stat-value">13</span></div>
+          <div class="stat-row"><span class="stat-label">World Rank</span><span class="stat-value">Approx. #13</span></div>
+          <div class="stat-row"><span class="stat-label">England</span><span class="stat-value">Approx. #2</span></div>
+          <a class="tour-link" href="https://www.royal-liverpool-golf.com/1-course" target="_blank">
+            <span class="tour-link-label">Hole-by-Hole Course Tour</span>
+            <span class="tour-link-url">royal-liverpool-golf.com</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     COURSE 4 · WEST LANCASHIRE
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="course" id="westlancs">
+  <div class="course-header"><div class="course-header-inner">
+    <div class="course-num">04</div>
+    <div class="course-date-badge">Saturday, 16 May 2026</div>
+    <h2 class="course-name">West Lancashire Golf Club</h2>
+    <p class="course-tagline">England's Unsung Links Masterpiece</p>
+  </div></div>
+  <div class="course-body">
+    <div class="course-cols">
+      <div>
+        <p class="section-label">Overview</p>
+        <p class="prose">West Lancashire is one of England's oldest clubs and most underrated links courses. Sitting on the banks of the Mersey Estuary with views across to Wales on a clear day, it offers a pure, unvarnished links experience. The fairways ripple and tumble across natural ground, and the wind turns a good score into a genuine achievement.</p>
+
+        <h3 class="section-heading">History &amp; Heritage</h3>
+        <p class="prose">Founded in 1873, West Lancashire is among the oldest golf clubs in England. The course occupies a spectacular stretch of coastline where the estuary meets the Irish Sea. C.K. Cotton's mid-20th century routing refinements helped consolidate the course's character, and the club maintains a proud tradition of amateur golf.</p>
+
+        <h3 class="section-heading">Tee Time Pairings</h3>
+        <div class="pairings-wrap">
+          <table class="pairings-table">
+            <thead><tr><th>Tee Time</th><th>Player 1</th><th>Player 2</th><th>Player 3</th><th>Player 4</th></tr></thead>
+            <tbody>
+              <tr><td>3:45 PM</td><td>Snyder</td><td>Meister</td><td>Kurtz</td><td>Burns</td></tr>
+              <tr><td>3:54 PM</td><td>CJ</td><td>Piche</td><td>Amar</td><td>Demmer</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="section-heading">Notable Championships</h3>
+        <ul class="item-list">
+          <li>Open Championship Final Qualifying (regularly)</li>
+          <li>English Amateur Championship (multiple times)</li>
+          <li>Ladies British Open Amateur Championship</li>
+          <li>Northern Open Amateur</li>
+        </ul>
+
+        <h3 class="section-heading">Fun Facts &amp; Folklore</h3>
+        <div class="facts-grid">
+          <div class="fact-item">On a clear day, the mountains of Snowdonia in North Wales are visible across the estuary — one of the most dramatic backdrops in English golf.</div>
+          <div class="fact-item">West Lancashire is one of the ten oldest golf clubs in England, founded in 1873 — just four years after Royal Liverpool.</div>
+          <div class="fact-item">The course sits where the Mersey Estuary meets the Irish Sea, creating wind conditions that can shift direction dramatically mid-round.</div>
+          <div class="fact-item">West Lancashire has long resisted commercialisation, preserving an atmosphere that feels refreshingly member-focused and unspoiled.</div>
+          <div class="fact-item">Despite its relative anonymity outside golfing circles, West Lancashire consistently appears in top-100 lists for the British Isles.</div>
+        </div>
+
+        <h3 class="section-heading">Upcoming Major Events</h3>
+        <div class="events-list">
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>Open Championship Final Qualifying — July 2026</strong>West Lancashire is selected as one of the Final Qualifying venues for The 154th Open Championship at Birkdale, continuing its long tradition in this role.</div></div>
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>English Amateur Championship</strong>West Lancs is a regular host of the English Amateur and other England Golf elite events.</div></div>
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>Northern Open Amateur</strong>One of the most prestigious amateur events in the north of England — West Lancashire is a natural home for it.</div></div>
+        </div>
+
+        <div class="insider-tip">
+          <p class="insider-tip-label">Insider Tip</p>
+          <p>Play the inward nine on an evening with the sun dropping over the estuary — one of the great underrated golf experiences in England.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="stats-card">
+          <p class="stats-card-title">At a Glance</p>
+          <div class="stat-row"><span class="stat-label">Founded</span><span class="stat-value">1873</span></div>
+          <div class="stat-row"><span class="stat-label">Par</span><span class="stat-value">72</span></div>
+          <div class="stat-row"><span class="stat-label">Yardage</span><span class="stat-value">6,756 yards</span></div>
+          <div class="stat-row"><span class="stat-label">Architect</span><span class="stat-value">C.K. Cotton (1960s)</span></div>
+          <div class="stat-row"><span class="stat-label">Caddy Fee</span><span class="stat-value">£70 + gratuity (paid directly to caddy on the day)</span></div>
+          <div class="stat-row"><span class="stat-label">World Rank</span><span class="stat-value">Approx. #120</span></div>
+          <div class="stat-row"><span class="stat-label">England</span><span class="stat-value">Approx. #18</span></div>
+          <a class="tour-link" href="https://www.westlancashiregolf.co.uk/the-course/course-tour/hole-1/" target="_blank">
+            <span class="tour-link-label">Hole-by-Hole Course Tour</span>
+            <span class="tour-link-url">westlancashiregolf.co.uk</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     COURSE 5 · SOUTHPORT & AINSDALE
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="course" id="sa">
+  <div class="course-header"><div class="course-header-inner">
+    <div class="course-num">05</div>
+    <div class="course-date-badge">Sunday, 17 May 2026</div>
+    <h2 class="course-name">Southport &amp; Ainsdale Golf Club</h2>
+    <p class="course-tagline">The Ryder Cup's Forgotten Home</p>
+  </div></div>
+  <div class="course-body">
+    <div class="course-cols">
+      <div>
+        <p class="section-label">Overview</p>
+        <p class="prose">Southport &amp; Ainsdale — known as S&amp;A — is a classic James Braid links between Hillside and Formby on the Sefton Coast. Braid's routing is intelligent and varied, mixing holes that run with and against the prevailing wind. The duneland is genuine and dramatic, and the course has a proud history that includes two Ryder Cups.</p>
+
+        <h3 class="section-heading">History &amp; Heritage</h3>
+        <p class="prose">Founded in 1906, the club commissioned legendary five-time Open champion James Braid to redesign the course in 1923 — and the result largely survives today. S&amp;A hosted the Ryder Cup in 1933 (GB&amp;I won, 6½–5½) and again in 1937 (USA won, 8–4, with Byron Nelson and Sam Snead both making their Ryder Cup debuts).</p>
+
+        <h3 class="section-heading">Tee Time Pairings</h3>
+        <div class="pairings-wrap">
+          <table class="pairings-table">
+            <thead><tr><th>Tee Time</th><th>Player 1</th><th>Player 2</th><th>Player 3</th><th>Player 4</th></tr></thead>
+            <tbody>
+              <tr><td>11:08 AM</td><td>Snyder</td><td>Piche</td><td>Demmer</td><td>Burns</td></tr>
+              <tr><td>11:16 AM</td><td>Amar</td><td>Meister</td><td>CJ</td><td>Kurtz</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="section-heading">Notable Championships</h3>
+        <ul class="item-list">
+          <li>Ryder Cup 1933 — Great Britain &amp; Ireland won 6½–5½</li>
+          <li>Ryder Cup 1937 — USA won 8–4</li>
+          <li>Open Championship Final Qualifying (regularly)</li>
+          <li>English Ladies' Championship</li>
+        </ul>
+
+        <h3 class="section-heading">Fun Facts &amp; Folklore</h3>
+        <div class="facts-grid">
+          <div class="fact-item">S&amp;A is one of only a handful of courses outside The Open rota to have hosted the Ryder Cup twice — 1933 and 1937.</div>
+          <div class="fact-item">The 1933 Ryder Cup was attended by the Prince of Wales, who personally presented the trophy after GB&amp;I's famous victory.</div>
+          <div class="fact-item">The 1937 American team included Byron Nelson and Sam Snead, both playing their first Ryder Cup.</div>
+          <div class="fact-item">James Braid designed this course aged 53, long after his playing career peaked — it stands as one of his finest architectural works.</div>
+          <div class="fact-item">The club's name is always abbreviated to 'S&amp;A' by locals — using the full name is the surest way to identify yourself as a visitor.</div>
+          <div class="fact-item">The course sits within the Sefton Coast dune system — a Site of Special Scientific Interest and some of the most ecologically important coastal land in the UK.</div>
+        </div>
+
+        <h3 class="section-heading">Upcoming Major Events</h3>
+        <div class="events-list">
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>Open Championship Final Qualifying — July 2026</strong>S&amp;A is selected as a Final Qualifying venue for The 154th Open Championship at Birkdale — a role it has fulfilled on numerous occasions.</div></div>
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>Ryder Cup Legacy</strong>Having hosted in 1933 and 1937, S&amp;A holds a unique place in match play history as one of the few traditional links to have hosted the Ryder Cup twice.</div></div>
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>Ladies &amp; England Golf Events</strong>S&amp;A continues to host Ladies British Open Amateur events, Northern regional qualifiers, and county championships.</div></div>
+        </div>
+
+        <div class="insider-tip">
+          <p class="insider-tip-label">Insider Tip</p>
+          <p>Play the stretch of holes through the highest dunes — the views and the golf are both outstanding.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="stats-card">
+          <p class="stats-card-title">At a Glance</p>
+          <div class="stat-row"><span class="stat-label">Founded</span><span class="stat-value">1906</span></div>
+          <div class="stat-row"><span class="stat-label">Par</span><span class="stat-value">72</span></div>
+          <div class="stat-row"><span class="stat-label">Yardage</span><span class="stat-value">6,612 yards</span></div>
+          <div class="stat-row"><span class="stat-label">Architect</span><span class="stat-value">James Braid (1923)</span></div>
+          <div class="stat-row"><span class="stat-label">Caddy Fee</span><span class="stat-value">£70 + gratuity (paid directly to caddy on the day)</span></div>
+          <div class="stat-row"><span class="stat-label">Ryder Cups</span><span class="stat-value">1933, 1937</span></div>
+          <div class="stat-row"><span class="stat-label">World Rank</span><span class="stat-value">Approx. #95</span></div>
+          <div class="stat-row"><span class="stat-label">England</span><span class="stat-value">Approx. #13</span></div>
+          <a class="tour-link" href="https://www.sandagolfclub.co.uk/the-course/course-tour/hole-1/" target="_blank">
+            <span class="tour-link-label">Hole-by-Hole Course Tour</span>
+            <span class="tour-link-url">sandagolfclub.co.uk</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     COURSE 6 · ROYAL BIRKDALE
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="course" id="birkdale">
+  <div class="course-header"><div class="course-header-inner">
+    <div class="course-num">06</div>
+    <div class="course-date-badge">Monday, 18 May 2026</div>
+    <h2 class="course-name">Royal Birkdale Golf Club</h2>
+    <p class="course-tagline">England's Premier Open Championship Venue</p>
+  </div></div>
+  <div class="course-body">
+    <div class="course-cols">
+      <div>
+        <p class="section-label">Overview</p>
+        <p class="prose">Royal Birkdale is widely considered the finest links course in England and one of the great golf venues in the world. The course is a masterwork of routing — fairways run along the valleys between the dunes, eliminating unpredictable side-slopes and creating a test that is, above all, fair. Every bad shot at Birkdale is the golfer's fault.</p>
+
+        <h3 class="section-heading">History &amp; Heritage</h3>
+        <p class="prose">Founded in 1889, the club received its Royal title in 1951. The 1931 redesign by Fred W. Hawtree and J.H. Taylor established the essential character of the modern course. The 1969 Ryder Cup famously ended in a tie after Jack Nicklaus conceded Tony Jacklin's putt on the final green — one of sport's greatest acts of sportsmanship.</p>
+
+        <h3 class="section-heading">Tee Time Pairings</h3>
+        <div class="pairings-wrap">
+          <table class="pairings-table">
+            <thead><tr><th>Tee Time</th><th>Player 1</th><th>Player 2</th><th>Player 3</th><th>Player 4</th></tr></thead>
+            <tbody>
+              <tr><td>1:00 PM</td><td>Snyder</td><td>CJ</td><td>Meister</td><td>Demmer</td></tr>
+              <tr><td>1:10 PM</td><td>Kurtz</td><td>Piche</td><td>Amar</td><td>Burns</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="section-heading">Open Championship Winners</h3>
+        <ul class="item-list">
+          <li>Peter Thomson (1954, 1965)</li>
+          <li>Arnold Palmer (1961) — one of his most commanding performances</li>
+          <li>Lee Trevino (1971) — his second consecutive Open title</li>
+          <li>Johnny Miller (1976) — final round 66 in a strong wind</li>
+          <li>Tom Watson (1983) — his fifth and final Open title</li>
+          <li>Ian Baker-Finch (1991) — a stunning front nine 29 in the final round</li>
+          <li>Mark O'Meara (1998)</li>
+          <li>Padraig Harrington (2008)</li>
+          <li>Jordan Spieth (2017) — one of the most dramatic final rounds in Open history</li>
+        </ul>
+
+        <h3 class="section-heading">Fun Facts &amp; Folklore</h3>
+        <div class="facts-grid">
+          <div class="fact-item">Jack Nicklaus's concession of Tony Jacklin's putt at the 18th in 1969 — "I don't think you would have missed it, but I was not prepared to give you the chance" — is one of sport's most celebrated acts of sportsmanship.</div>
+          <div class="fact-item">Arnold Palmer hit a rescue shot from beneath a bush at the 16th during the 1961 Open and made a remarkable birdie. A plaque marks the exact spot to this day.</div>
+          <div class="fact-item">The 1935 art deco clubhouse is Grade II* listed — the asterisk denoting buildings of exceptional interest, a step above standard listed status.</div>
+          <div class="fact-item">Birkdale's fairways run in the valleys between the dunes rather than over them, eliminating random bounces and making it the most consistently fair test in links golf.</div>
+          <div class="fact-item">Jordan Spieth's 2017 final round included one of the most extraordinary recoveries in Open history — he disappeared entirely into the dunes at the 13th before holing a chip to save par.</div>
+          <div class="fact-item">Royal Birkdale is consistently ranked in the world's top 10 courses and is widely regarded as England's finest links.</div>
+        </div>
+
+        <h3 class="section-heading">Upcoming Major Events</h3>
+        <div class="events-list">
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>The 154th Open Championship — July 2026</strong>Royal Birkdale hosts The Open for the 11th time. You will be playing these exact fairways just weeks before the world's best descend on Southport — an incredible thought standing on any tee.</div></div>
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>Ryder Cup — Future Candidate, Early 2030s</strong>Royal Birkdale hosted the Ryder Cup in 1965 and the famous tied match of 1969. It is widely regarded as the strongest candidate among traditional English links courses to host a future Ryder Cup. The 2027 match goes to Adare Manor, Ireland, with 2029 returning to the USA — Birkdale is firmly in the conversation for the early 2030s European staging.</div></div>
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>AIG Women's Open</strong>Birkdale has hosted the Women's British Open and remains one of the R&amp;A's preferred venues for the AIG Women's Open going forward.</div></div>
+          <div class="event-item"><span class="event-star">★</span><div class="event-text"><strong>Walker Cup &amp; Curtis Cup</strong>Birkdale has hosted both and remains on the rotation for future editions of these prestigious amateur internationals.</div></div>
+        </div>
+
+        <div class="insider-tip">
+          <p class="insider-tip-label">Insider Tip</p>
+          <p>Find the plaque marking Arnie's birdie from the bush in 1961 and pay your respects — then play the 18th as if the Claret Jug depends on it.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="stats-card">
+          <p class="stats-card-title">At a Glance</p>
+          <div class="stat-row"><span class="stat-label">Founded</span><span class="stat-value">1889</span></div>
+          <div class="stat-row"><span class="stat-label">Par</span><span class="stat-value">70</span></div>
+          <div class="stat-row"><span class="stat-label">Yardage</span><span class="stat-value">7,156 yards</span></div>
+          <div class="stat-row"><span class="stat-label">Architect</span><span class="stat-value">Hawtree &amp; J.H. Taylor (1931)</span></div>
+          <div class="stat-row"><span class="stat-label">Caddy Fee</span><span class="stat-value">£80 + optional gratuity (paid directly to caddy on the day)</span></div>
+          <div class="stat-row"><span class="stat-label">Opens Hosted</span><span class="stat-value">10 (11th in July 2026)</span></div>
+          <div class="stat-row"><span class="stat-label">Ryder Cups</span><span class="stat-value">1965, 1969</span></div>
+          <div class="stat-row"><span class="stat-label">World Rank</span><span class="stat-value">Approx. #5</span></div>
+          <div class="stat-row"><span class="stat-label">England</span><span class="stat-value">#1</span></div>
+          <a class="tour-link" href="https://royalbirkdale.com/the-course/" target="_blank">
+            <span class="tour-link-label">Hole-by-Hole Course Tour</span>
+            <span class="tour-link-url">royalbirkdale.com</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-rule"></div>
+  <h2 class="footer-title">Good luck. <em>Play well.</em></h2>
+  <p class="footer-body">The wind is the sixth player on every one of these courses. Respect it, read it, adjust — and you'll have the time of your golfing life.</p>
+  <div class="footer-rule"></div>
+  <p class="footer-sign">Enjoy every blade of links grass.</p>
+</footer>
+
+<script>
+  // Scroll-triggered reveal for course sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.07 });
+
+  document.querySelectorAll('.course').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
