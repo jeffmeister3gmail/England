@@ -180,16 +180,12 @@
     z-index: 100;
     background: var(--green-deep);
     border-bottom: 1px solid var(--rule);
-    overflow-x: auto;
-    scrollbar-width: none;
   }
-
-  .nav::-webkit-scrollbar { display: none; }
 
   .nav-inner {
     display: flex;
     align-items: center;
-    min-width: max-content;
+    flex-wrap: wrap;
     padding: 0 32px;
     gap: 0;
   }
@@ -201,10 +197,13 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--gold);
-    padding: 16px 16px 16px 0;
+    padding: 12px 16px 12px 0;
     border-right: 1px solid var(--rule);
     margin-right: 4px;
     white-space: nowrap;
+    flex-shrink: 0;
+    align-self: flex-start;
+    padding-top: 14px;
   }
 
   .nav a {
@@ -222,6 +221,7 @@
     flex-direction: column;
     align-items: center;
     gap: 2px;
+    flex-shrink: 0;
   }
 
   .nav a .nav-date {
@@ -636,6 +636,10 @@
     position: relative;
   }
 
+  .intro-inner .intro-body {
+    text-align: center;
+  }
+
   .intro-inner .section-label {
     justify-content: center;
     color: var(--gold);
@@ -649,6 +653,9 @@
     height: 1px;
     background: var(--rule);
   }
+
+  /* Course section padding below last element */
+  .course { padding-bottom: 64px; }
 
   .intro-quote {
     font-family: 'Playfair Display', serif;
@@ -725,115 +732,109 @@
 
   /* ── Tablet (≤900px) ── */
   @media (max-width: 900px) {
-    /* Hero */
-    .hero          { padding: 80px 28px 56px; min-height: 90vh; }
-    .hero-courses  { gap: 6px 14px; }
-
-    /* Nav */
-    .nav-inner     { padding: 0 16px; }
-    .nav-brand     { font-size: 11px; padding-right: 12px; }
-    .nav a         { padding: 10px 9px; font-size: 10px; }
-    .nav a .nav-date { font-size: 8px; }
-
-    /* Course */
+    .hero                 { padding: 80px 28px 56px; min-height: 90vh; }
+    .nav-inner            { padding: 0 16px; }
+    .nav-brand            { font-size: 11px; padding-right: 12px; }
+    .nav a                { padding: 10px 9px; font-size: 10px; }
+    .nav a .nav-date      { font-size: 8px; }
     .course-header        { padding: 40px 32px 36px; }
-    .course-header-inner  { padding: 0; }
     .course-body          { padding: 36px 32px 0; }
     .course-cols          { grid-template-columns: 1fr; gap: 32px; }
     .stats-card           { position: static; }
     .course-num           { display: none; }
-
-    /* Stats card — horizontal scroll on tablet */
-    .stats-card     { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-    .stats-card-title { grid-column: 1 / -1; }
-    .tour-link      { grid-column: 1 / -1; }
-
-    /* Intro / Footer */
-    .intro  { padding: 52px 32px; }
-    .footer { padding: 48px 32px; }
+    .intro                { padding: 52px 32px; }
+    .footer               { padding: 48px 32px; }
   }
 
-  /* ── Mobile (≤600px) ── */
-  @media (max-width: 600px) {
+  /* ── Mobile (≤640px) ── */
+  @media (max-width: 640px) {
     /* Hero */
-    .hero           { padding: 72px 20px 52px; min-height: 85vh; }
-    .hero-eyebrow   { font-size: 11px; letter-spacing: 0.2em; margin-bottom: 20px; }
-    .hero-subtitle  { font-size: 15px; margin-bottom: 32px; }
-    .hero-courses   { gap: 4px 12px; margin-bottom: 48px; }
-    .hero-courses span { font-size: 12px; }
+    .hero                 { padding: 64px 20px 48px; min-height: 80vh; }
+    .hero-eyebrow         { font-size: 11px; letter-spacing: 0.18em; margin-bottom: 16px; }
+    .hero-title           { font-size: clamp(40px, 11vw, 60px); }
+    .hero-subtitle        { font-size: 15px; margin-bottom: 24px; }
+    .hero-courses         { gap: 4px 12px; margin-bottom: 40px; }
+    .hero-courses span    { font-size: 12px; }
 
-    /* Nav — compress to icon+date, scrollable */
-    .nav-inner      { padding: 0 12px; gap: 0; }
-    .nav-brand      { font-size: 10px; padding-right: 10px; margin-right: 0; letter-spacing: 0.1em; }
-    .nav a          { padding: 8px 7px; font-size: 9px; letter-spacing: 0.1em; gap: 1px; }
-    .nav a .nav-date { font-size: 7.5px; }
+    /* Nav — allow wrapping on mobile */
+    .nav-inner            { padding: 0 12px; }
+    .nav-brand            { font-size: 10px; padding-right: 10px; border-right: none; margin-right: 0; width: 100%; padding-bottom: 6px; padding-top: 10px; border-bottom: 1px solid var(--rule); margin-bottom: 0; }
+    .nav a                { padding: 7px 8px; font-size: 9.5px; letter-spacing: 0.1em; gap: 1px; }
+    .nav a .nav-date      { font-size: 7.5px; letter-spacing: 0.08em; }
 
     /* Course header */
-    .course-header        { padding: 28px 20px 24px; }
-    .course-date-badge    { font-size: 10px; padding: 4px 10px; margin-bottom: 14px; }
-    .course-name          { font-size: 26px; }
-    .course-tagline       { font-size: 14px; }
+    .course-header        { padding: 24px 20px 22px; }
+    .course-date-badge    { font-size: 10px; padding: 4px 10px; margin-bottom: 12px; }
+    .course-name          { font-size: clamp(22px, 6vw, 32px); }
+    .course-tagline       { font-size: 13px; }
 
     /* Course body */
-    .course-body    { padding: 28px 20px 0; }
-    .course-cols    { gap: 24px; }
+    .course-body          { padding: 24px 20px 0; }
+    .course-cols          { gap: 20px; }
 
-    /* Stats card — single column on mobile */
-    .stats-card           { display: block; padding: 20px; }
-    .stats-card-title     { font-size: 10px; margin-bottom: 14px; }
-    .stat-row             { padding: 7px 0; }
-    .stat-label           { font-size: 10px; min-width: 88px; }
+    /* Stats card */
+    .stats-card           { display: block; padding: 18px 16px; }
+    .stats-card-title     { font-size: 10px; margin-bottom: 12px; padding-bottom: 10px; }
+    .stat-row             { padding: 7px 0; gap: 8px; }
+    .stat-label           { font-size: 10px; min-width: 80px; }
     .stat-value           { font-size: 14px; }
-    .tour-link            { padding: 10px 12px; margin-top: 14px; }
+    .tour-link            { padding: 10px 12px; margin-top: 12px; }
     .tour-link-label      { font-size: 9px; }
     .tour-link-url        { font-size: 12px; }
 
-    /* Section headings */
-    .section-heading  { font-size: 18px; margin-top: 28px; }
-    .section-label    { font-size: 10px; }
-    .prose            { font-size: 16px; }
+    /* Typography */
+    .section-heading      { font-size: 18px; margin-top: 28px; margin-bottom: 12px; }
+    .section-label        { font-size: 10px; margin-bottom: 8px; }
+    .prose                { font-size: 16px; line-height: 1.7; }
 
-    /* Pairings table */
-    .pairings-wrap    { margin: 6px -4px 14px; }
-    .pairings-table thead th { font-size: 9px; padding: 9px 10px; letter-spacing: 0.12em; }
-    .pairings-table tbody td { font-size: 14px; padding: 10px 10px; }
-    .pairings-table tbody td:first-child { font-size: 13px; }
+    /* Pairings */
+    .pairings-wrap        { margin: 6px 0 14px; }
+    .pairings-table thead th { font-size: 9px; padding: 9px 8px; letter-spacing: 0.1em; }
+    .pairings-table tbody td  { font-size: 14px; padding: 9px 8px; }
+    .pairings-table tbody td:first-child { font-size: 13px; font-weight: 700; }
 
-    /* Item list */
-    .item-list li   { font-size: 15px; padding: 7px 0 7px 18px; }
+    /* Lists */
+    .item-list li         { font-size: 15px; padding: 6px 0 6px 16px; }
 
-    /* Fun facts */
-    .fact-item      { font-size: 15px; padding: 12px 14px; }
+    /* Facts */
+    .facts-grid           { gap: 10px; }
+    .fact-item            { font-size: 15px; padding: 11px 13px; }
 
     /* Events */
-    .event-text     { font-size: 14px; }
-    .event-text strong { font-size: 14px; }
-    .event-item     { padding: 12px 14px; }
+    .events-list          { gap: 8px; }
+    .event-item           { padding: 12px 14px; gap: 10px; }
+    .event-text           { font-size: 14px; }
+    .event-text strong    { font-size: 14px; margin-bottom: 2px; }
+    .event-star           { font-size: 14px; }
 
     /* Insider tip */
-    .insider-tip    { padding: 16px 18px; margin-top: 24px; }
-    .insider-tip p  { font-size: 15px; }
+    .insider-tip          { padding: 14px 16px; margin-top: 24px; }
+    .insider-tip-label    { font-size: 10px; }
+    .insider-tip p        { font-size: 15px; }
 
-    /* Intro */
-    .intro          { padding: 40px 20px; }
-    .intro-quote    { font-size: 18px; }
-    .intro-body     { font-size: 16px; }
+    /* Intro — left-align body text on mobile */
+    .intro                { padding: 40px 20px; }
+    .intro-inner          { text-align: left; }
+    .intro-inner .section-label { justify-content: flex-start; }
+    .intro-inner .section-label::before { display: none; }
+    .intro-quote          { font-size: 18px; text-align: left; }
+    .intro-body           { font-size: 16px; text-align: left; }
 
     /* Footer */
-    .footer         { padding: 40px 20px; }
-    .footer-title   { font-size: 22px; }
-    .footer-body    { font-size: 15px; }
-    .footer-sign    { font-size: 16px; }
+    .footer               { padding: 36px 20px; text-align: left; }
+    .footer-title         { font-size: 22px; }
+    .footer-body          { font-size: 15px; }
+    .footer-sign          { font-size: 15px; }
+    .footer-rule          { margin: 0 0 20px; }
   }
 
-  /* ── Small mobile (≤380px) ── */
-  @media (max-width: 380px) {
-    .nav-brand      { display: none; }
-    .nav a          { padding: 8px 6px; font-size: 8.5px; }
-    .hero-title     { font-size: 44px; }
-    .course-name    { font-size: 22px; }
-    .pairings-table thead th { padding: 8px 7px; }
-    .pairings-table tbody td { padding: 8px 7px; font-size: 13px; }
+  /* ── Small phones (≤390px) ── */
+  @media (max-width: 390px) {
+    .nav a                { padding: 6px 7px; font-size: 9px; }
+    .course-name          { font-size: 20px; }
+    .hero-title           { font-size: 38px; }
+    .pairings-table thead th { padding: 8px 6px; font-size: 8.5px; }
+    .pairings-table tbody td  { padding: 8px 6px; font-size: 13px; }
   }
 </style>
 </head>
