@@ -174,20 +174,21 @@
   }
 
   /* ── NAV ─────────────────────────────────────────────────────────────── */
+  /* ── NAV ── */
   .nav {
     position: sticky;
     top: 0;
     z-index: 100;
     background: var(--green-deep);
     border-bottom: 1px solid var(--rule);
+    width: 100%;
   }
 
-  .nav-inner {
+  .nav-brand-row {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
     padding: 0 32px;
-    gap: 0;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
   }
 
   .nav-brand {
@@ -197,13 +198,15 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--gold);
-    padding: 12px 16px 12px 0;
-    border-right: 1px solid var(--rule);
-    margin-right: 4px;
+    padding: 12px 0;
     white-space: nowrap;
-    flex-shrink: 0;
-    align-self: flex-start;
-    padding-top: 14px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 32px;
+    width: 100%;
   }
 
   .nav a {
@@ -213,7 +216,7 @@
     text-transform: uppercase;
     color: rgba(255,255,255,0.55);
     text-decoration: none;
-    padding: 10px 12px;
+    padding: 8px 14px;
     white-space: nowrap;
     transition: color 0.2s;
     border-bottom: 2px solid transparent;
@@ -221,7 +224,6 @@
     flex-direction: column;
     align-items: center;
     gap: 2px;
-    flex-shrink: 0;
   }
 
   .nav a .nav-date {
@@ -234,7 +236,6 @@
   }
 
   .nav a:hover .nav-date { color: var(--gold-light); }
-
   .nav a:hover { color: var(--gold-light); border-bottom-color: var(--gold); }
 
   /* ── COURSE SECTION ──────────────────────────────────────────────────── */
@@ -733,9 +734,10 @@
   /* ── Tablet (≤900px) ── */
   @media (max-width: 900px) {
     .hero                 { padding: 80px 28px 56px; min-height: 90vh; }
-    .nav-inner            { padding: 0 16px; }
-    .nav-brand            { font-size: 11px; padding-right: 12px; }
-    .nav a                { padding: 10px 9px; font-size: 10px; }
+    .nav-brand-row        { padding: 0 20px; }
+    .nav-links            { padding: 0 20px; }
+    .nav-brand            { font-size: 11px; }
+    .nav a                { padding: 8px 10px; font-size: 10px; }
     .nav a .nav-date      { font-size: 8px; }
     .course-header        { padding: 40px 32px 36px; }
     .course-body          { padding: 36px 32px 0; }
@@ -756,9 +758,10 @@
     .hero-courses         { gap: 4px 12px; margin-bottom: 40px; }
     .hero-courses span    { font-size: 12px; }
 
-    /* Nav — allow wrapping on mobile */
-    .nav-inner            { padding: 0 12px; }
-    .nav-brand            { font-size: 10px; padding-right: 10px; border-right: none; margin-right: 0; width: 100%; padding-bottom: 6px; padding-top: 10px; border-bottom: 1px solid var(--rule); margin-bottom: 0; }
+    /* Nav — wraps naturally on mobile */
+    .nav-brand-row        { padding: 0 16px; }
+    .nav-links            { padding: 0 16px; }
+    .nav-brand            { font-size: 10px; }
     .nav a                { padding: 7px 8px; font-size: 9.5px; letter-spacing: 0.1em; gap: 1px; }
     .nav a .nav-date      { font-size: 7.5px; letter-spacing: 0.08em; }
 
@@ -830,7 +833,7 @@
 
   /* ── Small phones (≤390px) ── */
   @media (max-width: 390px) {
-    .nav a                { padding: 6px 7px; font-size: 9px; }
+    .nav a                { padding: 6px 8px; font-size: 9px; }
     .course-name          { font-size: 20px; }
     .hero-title           { font-size: 38px; }
     .pairings-table thead th { padding: 8px 6px; font-size: 8.5px; }
@@ -862,8 +865,10 @@
 
 <!-- ── NAV ──────────────────────────────────────────────────────────────── -->
 <nav class="nav">
-  <div class="nav-inner">
-    <div class="nav-brand">Lancashire Links</div>
+  <div class="nav-brand-row">
+    <div class="nav-brand">Lancashire Links &mdash; England's Golf Coast 2026</div>
+  </div>
+  <div class="nav-links">
     <a href="#hillside">Hillside<span class="nav-date">Wed 13 May</span></a>
     <a href="#lytham">Royal Lytham<span class="nav-date">Thu 14 May</span></a>
     <a href="#liverpool">Royal Liverpool<span class="nav-date">Fri 15 May</span></a>
