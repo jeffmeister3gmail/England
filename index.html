@@ -474,12 +474,18 @@
   .pairings-wrap {
     margin: 8px 0 16px;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) transparent;
   }
+
+  .pairings-wrap::-webkit-scrollbar { height: 3px; }
+  .pairings-wrap::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
 
   .pairings-table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 480px;
+    min-width: 420px;
   }
 
   .pairings-table thead tr {
@@ -716,22 +722,118 @@
   }
 
   /* ── RESPONSIVE ───────────────────────────────────────────────────────── */
+
+  /* ── Tablet (≤900px) ── */
   @media (max-width: 900px) {
-    .course-header { padding: 40px 32px 36px; }
-    .course-body   { padding: 40px 32px 0; }
-    .course-cols   { grid-template-columns: 1fr; gap: 36px; }
-    .stats-card    { position: static; }
-    .intro         { padding: 56px 32px; }
-    .footer        { padding: 48px 32px; }
-    .course-num    { display: none; }
+    /* Hero */
+    .hero          { padding: 80px 28px 56px; min-height: 90vh; }
+    .hero-courses  { gap: 6px 14px; }
+
+    /* Nav */
+    .nav-inner     { padding: 0 16px; }
+    .nav-brand     { font-size: 11px; padding-right: 12px; }
+    .nav a         { padding: 10px 9px; font-size: 10px; }
+    .nav a .nav-date { font-size: 8px; }
+
+    /* Course */
+    .course-header        { padding: 40px 32px 36px; }
+    .course-header-inner  { padding: 0; }
+    .course-body          { padding: 36px 32px 0; }
+    .course-cols          { grid-template-columns: 1fr; gap: 32px; }
+    .stats-card           { position: static; }
+    .course-num           { display: none; }
+
+    /* Stats card — horizontal scroll on tablet */
+    .stats-card     { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .stats-card-title { grid-column: 1 / -1; }
+    .tour-link      { grid-column: 1 / -1; }
+
+    /* Intro / Footer */
+    .intro  { padding: 52px 32px; }
+    .footer { padding: 48px 32px; }
   }
 
+  /* ── Mobile (≤600px) ── */
   @media (max-width: 600px) {
-    .course-header { padding: 32px 20px 28px; }
-    .course-body   { padding: 28px 20px 0; }
-    .intro         { padding: 40px 20px; }
-    .footer        { padding: 40px 20px; }
-    .hero          { padding: 60px 24px 60px; }
+    /* Hero */
+    .hero           { padding: 72px 20px 52px; min-height: 85vh; }
+    .hero-eyebrow   { font-size: 11px; letter-spacing: 0.2em; margin-bottom: 20px; }
+    .hero-subtitle  { font-size: 15px; margin-bottom: 32px; }
+    .hero-courses   { gap: 4px 12px; margin-bottom: 48px; }
+    .hero-courses span { font-size: 12px; }
+
+    /* Nav — compress to icon+date, scrollable */
+    .nav-inner      { padding: 0 12px; gap: 0; }
+    .nav-brand      { font-size: 10px; padding-right: 10px; margin-right: 0; letter-spacing: 0.1em; }
+    .nav a          { padding: 8px 7px; font-size: 9px; letter-spacing: 0.1em; gap: 1px; }
+    .nav a .nav-date { font-size: 7.5px; }
+
+    /* Course header */
+    .course-header        { padding: 28px 20px 24px; }
+    .course-date-badge    { font-size: 10px; padding: 4px 10px; margin-bottom: 14px; }
+    .course-name          { font-size: 26px; }
+    .course-tagline       { font-size: 14px; }
+
+    /* Course body */
+    .course-body    { padding: 28px 20px 0; }
+    .course-cols    { gap: 24px; }
+
+    /* Stats card — single column on mobile */
+    .stats-card           { display: block; padding: 20px; }
+    .stats-card-title     { font-size: 10px; margin-bottom: 14px; }
+    .stat-row             { padding: 7px 0; }
+    .stat-label           { font-size: 10px; min-width: 88px; }
+    .stat-value           { font-size: 14px; }
+    .tour-link            { padding: 10px 12px; margin-top: 14px; }
+    .tour-link-label      { font-size: 9px; }
+    .tour-link-url        { font-size: 12px; }
+
+    /* Section headings */
+    .section-heading  { font-size: 18px; margin-top: 28px; }
+    .section-label    { font-size: 10px; }
+    .prose            { font-size: 16px; }
+
+    /* Pairings table */
+    .pairings-wrap    { margin: 6px -4px 14px; }
+    .pairings-table thead th { font-size: 9px; padding: 9px 10px; letter-spacing: 0.12em; }
+    .pairings-table tbody td { font-size: 14px; padding: 10px 10px; }
+    .pairings-table tbody td:first-child { font-size: 13px; }
+
+    /* Item list */
+    .item-list li   { font-size: 15px; padding: 7px 0 7px 18px; }
+
+    /* Fun facts */
+    .fact-item      { font-size: 15px; padding: 12px 14px; }
+
+    /* Events */
+    .event-text     { font-size: 14px; }
+    .event-text strong { font-size: 14px; }
+    .event-item     { padding: 12px 14px; }
+
+    /* Insider tip */
+    .insider-tip    { padding: 16px 18px; margin-top: 24px; }
+    .insider-tip p  { font-size: 15px; }
+
+    /* Intro */
+    .intro          { padding: 40px 20px; }
+    .intro-quote    { font-size: 18px; }
+    .intro-body     { font-size: 16px; }
+
+    /* Footer */
+    .footer         { padding: 40px 20px; }
+    .footer-title   { font-size: 22px; }
+    .footer-body    { font-size: 15px; }
+    .footer-sign    { font-size: 16px; }
+  }
+
+  /* ── Small mobile (≤380px) ── */
+  @media (max-width: 380px) {
+    .nav-brand      { display: none; }
+    .nav a          { padding: 8px 6px; font-size: 8.5px; }
+    .hero-title     { font-size: 44px; }
+    .course-name    { font-size: 22px; }
+    .pairings-table thead th { padding: 8px 7px; }
+    .pairings-table tbody td { padding: 8px 7px; font-size: 13px; }
   }
 </style>
 </head>
