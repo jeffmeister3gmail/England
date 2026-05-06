@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lancashire Links — England's Golf Coast 2026</title>
+<title>England Boys Trip 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -112,6 +112,16 @@
     color: var(--gold-light);
   }
 
+  .hero-title .hero-sub {
+    font-size: 0.42em;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.75);
+    font-style: normal;
+    display: block;
+    margin-top: 8px;
+  }
+
   .hero-rule {
     width: 120px;
     height: 1px;
@@ -208,7 +218,11 @@
     color: var(--gold);
     padding: 12px 0;
     white-space: nowrap;
+    min-width: 0;
   }
+
+  .brand-short { display: none; }
+  .brand-full  { display: inline; }
 
   .nav-links {
     display: flex;
@@ -245,6 +259,82 @@
 
   .nav a:hover .nav-date { color: var(--gold-light); }
   .nav a:hover { color: var(--gold-light); border-bottom-color: var(--gold); }
+
+  /* ── Font size toggle ── */
+  .font-toggle {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.5);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    flex-shrink: 0;
+    white-space: nowrap;
+    -webkit-appearance: none;
+    appearance: none;
+    color: inherit;
+    font: inherit;
+    outline: none;
+  }
+
+  .font-toggle:hover {
+    background: rgba(201,168,76,0.2);
+    border-color: var(--gold);
+  }
+
+  .font-toggle .ft-small {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.05em;
+  }
+
+  .font-toggle .ft-large {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+
+  .font-toggle .ft-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* Large font mode */
+  body.large-font { font-size: 21px; }
+  body.large-font .prose          { font-size: 20px; }
+  body.large-font .item-list li   { font-size: 19px; }
+  body.large-font .fact-item      { font-size: 19px; }
+  body.large-font .event-text     { font-size: 18px; }
+  body.large-font .stat-value     { font-size: 18px; }
+  body.large-font .section-heading { font-size: 26px; }
+  body.large-font .course-name    { font-size: clamp(32px, 5vw, 54px); }
+  body.large-font .nav a          { font-size: 13px; }
+  body.large-font .nav a .nav-date { font-size: 11px; }
+  body.large-font .insider-tip p  { font-size: 20px; }
+  body.large-font .intro-quote    { font-size: clamp(22px, 3vw, 32px); }
+  body.large-font .intro-body     { font-size: 20px; }
+  body.large-font .footer-body    { font-size: 19px; }
+
+  .font-toggle.active .ft-label   { color: var(--gold); }
+  .font-toggle.active              { background: rgba(201,168,76,0.2); border-color: var(--gold); }
+
+  @media (max-width: 640px) {
+    .font-toggle                  { padding: 5px 9px; gap: 4px; }
+    .font-toggle .ft-label        { display: none; }
+    body.large-font .prose        { font-size: 18px; }
+    body.large-font .item-list li { font-size: 17px; }
+    body.large-font .fact-item    { font-size: 17px; }
+  }
 
   /* ── COURSE SECTION ──────────────────────────────────────────────────── */
   .course {
@@ -783,9 +873,12 @@
     .hero-courses span    { font-size: 12px; }
 
     /* Nav — wraps naturally on mobile */
-    .nav-brand-row        { padding: 0 16px; }
-    .nav-links            { padding: 0 16px; }
+    .nav-brand-row        { padding: 0 12px; }
+    .nav-links            { padding: 0 12px; }
     .nav-brand            { font-size: 10px; }
+    .brand-full           { display: none; }
+    .brand-short          { display: inline; }
+    .font-toggle          { padding: 5px 10px; gap: 5px; }
     .nav a                { padding: 7px 8px; font-size: 9.5px; letter-spacing: 0.1em; gap: 1px; }
     .nav a .nav-date      { font-size: 7.5px; letter-spacing: 0.08em; }
 
@@ -870,8 +963,8 @@
 
 <!-- ── HERO ─────────────────────────────────────────────────────────────── -->
 <section class="hero">
-  <p class="hero-eyebrow">Snyder &amp; Meister · England's Golf Coast · May 2026</p>
-  <h1 class="hero-title"><em>Lancashire</em><br>Links</h1>
+  <p class="hero-eyebrow">Snyder &amp; Meister · May 2026</p>
+  <h1 class="hero-title"><em>England</em><br><span class="hero-sub">Boys Trip · 2026</span></h1>
   <div class="hero-rule"></div>
   <p class="hero-subtitle">A Traveller's Companion to Six Great Courses of the Sefton Coast &amp; Wirral</p>
   <div class="hero-courses">
@@ -891,7 +984,12 @@
 <!-- ── NAV ──────────────────────────────────────────────────────────────── -->
 <nav class="nav">
   <div class="nav-brand-row">
-    <div class="nav-brand">Lancashire Links &mdash; England's Golf Coast 2026</div>
+    <div class="nav-brand"><span class="brand-full">England Boys Trip &mdash; 2026</span><span class="brand-short">England Boys Trip</span></div>
+    <button class="font-toggle" id="fontToggle" onclick="toggleFont()" title="Toggle large text">
+      <span class="ft-small">A</span>
+      <span class="ft-large">A</span>
+      <span class="ft-label">Text Size</span>
+    </button>
   </div>
   <div class="nav-links">
     <a href="#hillside">Hillside<span class="nav-date">Wed 13 May</span></a>
@@ -1439,6 +1537,23 @@
   }, { threshold: 0.07 });
 
   document.querySelectorAll('.course').forEach(el => observer.observe(el));
+
+  // Font size toggle
+  function toggleFont() {
+    const body = document.body;
+    const btn  = document.getElementById('fontToggle');
+    const large = body.classList.toggle('large-font');
+    btn.classList.toggle('active', large);
+    try { localStorage.setItem('ll-large-font', large ? '1' : ''); } catch(e) {}
+  }
+
+  // Restore preference on load
+  try {
+    if (localStorage.getItem('ll-large-font')) {
+      document.body.classList.add('large-font');
+      document.getElementById('fontToggle').classList.add('active');
+    }
+  } catch(e) {}
 </script>
 </body>
 </html>
