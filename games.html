@@ -31,6 +31,10 @@
 
   /* NAV */
   .nav{position:sticky;top:0;z-index:100;background:var(--green-deep);border-bottom:1px solid var(--rule);}
+  .nav-brand-row{display:flex;align-items:center;padding:0 24px;border-bottom:1px solid rgba(201,168,76,0.15);}
+  .nav-brand{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);padding:12px 0;white-space:nowrap;}
+  .games-link{margin-left:auto;font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);text-decoration:none;padding:0 16px;opacity:0.85;white-space:nowrap;flex-shrink:0;align-self:center;border-left:1px solid var(--rule);transition:opacity 0.2s;}
+  .games-link:hover{opacity:1;}
   .nav-inner{display:flex;flex-wrap:wrap;padding:0 24px;max-width:1100px;margin:0 auto;}
   .nav a{font-family:'Cormorant Garamond',serif;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;padding:9px 10px;display:flex;flex-direction:column;align-items:center;gap:1px;border-bottom:2px solid transparent;transition:color 0.2s;white-space:nowrap;}
   .nav a .nd{font-size:8px;color:rgba(255,255,255,0.28);letter-spacing:0.1em;}
@@ -148,6 +152,10 @@
 </header>
 
 <nav class="nav">
+  <div class="nav-brand-row">
+    <div class="nav-brand">Games &amp; Formats</div>
+    <a href="index.html" class="games-link">← Course Guide</a>
+  </div>
   <div class="nav-inner">
     <a href="#hillside">Hillside<span class="nd">Wed 13 May</span></a>
     <a href="#lytham">Royal Lytham<span class="nd">Thu 14 May</span></a>
@@ -212,7 +220,6 @@
         <div class="gc-body">
           <div class="pairings">
             <div class="pr pa"><span class="pr-name">Snyder</span><span class="pr-hdcp">8.7</span><span class="pr-name" style="text-align:right">Burns</span><span class="pr-hdcp">17.8</span></div>
-            <div class="pr-vs">vs.</div>
             <div class="pr pb"><span class="pr-name">CJ</span><span class="pr-hdcp">9.1</span><span class="pr-name" style="text-align:right">Amar</span><span class="pr-hdcp">15.9</span></div>
           </div>
           </div>
@@ -221,7 +228,6 @@
         <div class="gc-body">
           <div class="pairings">
             <div class="pr pa"><span class="pr-name">Meister</span><span class="pr-hdcp">7.7</span><span class="pr-name" style="text-align:right">Demmer</span><span class="pr-hdcp">14.4</span></div>
-            <div class="pr-vs">vs.</div>
             <div class="pr pb"><span class="pr-name">Piche</span><span class="pr-hdcp">11.0</span><span class="pr-name" style="text-align:right">Kurtz</span><span class="pr-hdcp">12.7</span></div>
           </div>
           </div>
@@ -292,7 +298,6 @@
         <div class="gc-body">
           <div class="pairings">
             <div class="pr pa"><span class="pr-name">Snyder</span><span class="pr-hdcp">8.7</span><span class="pr-name" style="text-align:right">Amar</span><span class="pr-hdcp">15.9</span></div>
-            <div class="pr-vs">vs.</div>
             <div class="pr pb"><span class="pr-name">Kurtz</span><span class="pr-hdcp">12.7</span><span class="pr-name" style="text-align:right">Demmer</span><span class="pr-hdcp">14.4</span></div>
           </div>
           </div>
@@ -301,7 +306,6 @@
         <div class="gc-body">
           <div class="pairings">
             <div class="pr pa"><span class="pr-name">Meister</span><span class="pr-hdcp">7.7</span><span class="pr-name" style="text-align:right">Burns</span><span class="pr-hdcp">17.8</span></div>
-            <div class="pr-vs">vs.</div>
             <div class="pr pb"><span class="pr-name">CJ</span><span class="pr-hdcp">9.1</span><span class="pr-name" style="text-align:right">Piche</span><span class="pr-hdcp">11.0</span></div>
           </div>
           </div>

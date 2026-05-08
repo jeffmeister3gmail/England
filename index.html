@@ -261,8 +261,26 @@
   .nav a:hover { color: var(--gold-light); border-bottom-color: var(--gold); }
 
   /* ── Font size toggle ── */
-  .font-toggle {
+  .games-link {
     margin-left: auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    padding: 0 16px;
+    opacity: 0.85;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: center;
+    border-right: 1px solid var(--rule);
+    transition: opacity 0.2s;
+  }
+  .games-link:hover { opacity: 1; }
+
+  .font-toggle {
+    margin-left: 0;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -331,6 +349,7 @@
   @media (max-width: 640px) {
     .font-toggle                  { padding: 5px 9px; gap: 4px; }
     .font-toggle .ft-label        { display: none; }
+    .games-link                   { font-size: 10px; padding: 0 10px; letter-spacing: 0.12em; }
     body.large-font .prose        { font-size: 18px; }
     body.large-font .item-list li { font-size: 17px; }
     body.large-font .fact-item    { font-size: 17px; }
@@ -985,7 +1004,7 @@
 <nav class="nav">
   <div class="nav-brand-row">
     <div class="nav-brand"><span class="brand-full">England Boys Trip &mdash; 2026</span><span class="brand-short">England Boys Trip</span></div>
-    <a href="games.html" style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);text-decoration:none;padding:0 12px;opacity:0.85;white-space:nowrap;flex-shrink:0;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85">Games &amp; Formats →</a>
+    <a href="games.html" class="games-link">Games &amp; Formats →</a>
     <button class="font-toggle" id="fontToggle" onclick="toggleFont()" title="Toggle large text">
       <span class="ft-small">A</span>
       <span class="ft-large">A</span>
