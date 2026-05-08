@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>England Boys Trip 2026 — Photo Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep:  #0F2A1A;
+    --green-dark:  #1B4D2E;
+    --green-mid:   #2E7D46;
+    --gold:        #C9A84C;
+    --gold-light:  #E8C97A;
+    --cream:       #FAF8F3;
+    --cream-dark:  #F0EDE4;
+    --ink:         #1A1A1A;
+    --text-body:   #2C2C2C;
+    --white:       #FFFFFF;
+    --rule:        rgba(201,168,76,0.3);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  body { background: var(--ink); color: var(--white); font-family: 'Crimson Text', serif; overflow-x: clip; }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: var(--green-deep);
+    padding: 48px 40px 40px;
+    text-align: center;
+    border-bottom: 2px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(46,125,70,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'Cormorant Garamond', serif; font-size: 11px;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); text-decoration: none;
+    margin-bottom: 24px; transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; font-size: 14px; }
+  .header-eyebrow {
+    font-family: 'Cormorant Garamond', serif; font-size: 11px;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 56px); font-weight: 900;
+    color: var(--white); line-height: 1.05; margin-bottom: 12px;
+  }
+  .header-title em { font-style: italic; color: var(--gold-light); }
+  .header-rule { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 20px auto; }
+  .header-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--green-deep);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-brand-row {
+    display: flex; align-items: center;
+    padding: 0 24px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); padding: 12px 0; white-space: nowrap;
+  }
+  .nav-home-link {
+    margin-left: auto;
+    font-family: 'Cormorant Garamond', serif; font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); text-decoration: none;
+    padding: 0 16px; opacity: 0.85; white-space: nowrap;
+    flex-shrink: 0; align-self: center;
+    border-left: 1px solid var(--rule); transition: opacity 0.2s;
+  }
+  .nav-home-link:hover { opacity: 1; }
+  .nav-inner { display: flex; flex-wrap: wrap; padding: 0 24px; }
+  .nav a {
+    font-family: 'Cormorant Garamond', serif; font-size: 10.5px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); text-decoration: none;
+    padding: 9px 10px; display: flex; flex-direction: column;
+    align-items: center; gap: 1px;
+    border-bottom: 2px solid transparent; transition: color 0.2s; white-space: nowrap;
+  }
+  .nav a .nd { font-size: 8px; color: rgba(255,255,255,0.28); letter-spacing: 0.1em; }
+  .nav a:hover { color: var(--gold-light); border-bottom-color: var(--gold); }
+
+  /* ── CLUB SECTION ── */
+  .club-section {
+    padding: 0 0 80px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .club-section.visible { opacity: 1; transform: none; }
+
+  .club-header {
+    padding: 52px 48px 40px;
+    position: relative; overflow: hidden;
+    background: linear-gradient(180deg, rgba(15,42,26,0.95) 0%, transparent 100%);
+  }
+  .club-header-inner { max-width: 1200px; margin: 0 auto; }
+  .club-num {
+    font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 900;
+    color: rgba(255,255,255,0.03); position: absolute; right: 40px; top: -10px;
+    line-height: 1; pointer-events: none;
+  }
+  .club-date-badge {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif; font-size: 11px;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 4px 12px; margin-bottom: 12px;
+  }
+  .club-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 52px); font-weight: 700;
+    color: var(--white); line-height: 1.05; margin-bottom: 8px;
+  }
+  .club-tagline {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 16px; color: rgba(255,255,255,0.45);
+  }
+
+  /* ── PHOTO GRID ── */
+  .photo-grid {
+    padding: 0 40px;
+    max-width: 1200px; margin: 0 auto;
+    columns: 3; column-gap: 12px;
+  }
+
+  .photo-item {
+    break-inside: avoid;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .photo-item img {
+    width: 100%; display: block;
+    transition: transform 0.5s ease, filter 0.3s ease;
+    filter: brightness(0.92) saturate(1.1);
+  }
+
+  .photo-item:hover img {
+    transform: scale(1.04);
+    filter: brightness(1) saturate(1.15);
+  }
+
+  .photo-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 32px 16px 14px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, transparent 100%);
+    font-family: 'Cormorant Garamond', serif; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    transform: translateY(100%); transition: transform 0.3s ease;
+  }
+
+  .photo-item:hover .photo-caption { transform: translateY(0); }
+
+  /* Featured (wide) photo */
+  .photo-item.wide {
+    column-span: all;
+    margin-bottom: 12px;
+  }
+  .photo-item.wide img { max-height: 480px; object-fit: cover; }
+
+  /* Error state */
+  .photo-item img.error {
+    display: none;
+  }
+  .photo-item.has-error {
+    background: rgba(255,255,255,0.04);
+    min-height: 200px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .photo-item .error-msg {
+    display: none;
+    font-family: 'Cormorant Garamond', serif; font-size: 13px;
+    color: rgba(255,255,255,0.25); text-align: center; padding: 20px;
+  }
+  .photo-item.has-error .error-msg { display: block; }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.95); z-index: 1000;
+    align-items: center; justify-content: center;
+    cursor: pointer;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 92vw; max-height: 92vh;
+    object-fit: contain;
+    box-shadow: 0 0 80px rgba(0,0,0,0.8);
+  }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 32px;
+    font-family: 'Cormorant Garamond', serif; font-size: 32px;
+    color: rgba(255,255,255,0.5); cursor: pointer;
+    transition: color 0.2s; line-height: 1;
+  }
+  .lightbox-close:hover { color: var(--gold); }
+  .lightbox-caption {
+    position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif; font-size: 14px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── CREDIT ── */
+  .credits {
+    background: var(--green-deep); padding: 32px 40px;
+    border-top: 1px solid var(--rule); text-align: center;
+  }
+  .credits p {
+    font-family: 'Cormorant Garamond', serif; font-size: 13px;
+    letter-spacing: 0.1em; color: rgba(255,255,255,0.3); line-height: 1.8;
+  }
+  .credits a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+  .credits a:hover { opacity: 1; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--green-deep); border-top: 1px solid var(--rule); padding: 28px 40px; text-align: center; }
+  .footer a { font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; margin: 0 12px; }
+  .footer a:hover { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .photo-grid { columns: 2; padding: 0 20px; }
+    .club-header { padding: 36px 20px 28px; }
+    .club-num { display: none; }
+    .photo-item.wide img { max-height: 320px; }
+  }
+  @media (max-width: 560px) {
+    .photo-grid { columns: 1; padding: 0 16px; }
+    .club-header { padding: 28px 16px 24px; }
+    .nav-inner { padding: 0 12px; }
+    .nav-brand-row { padding: 0 12px; }
+    .photo-caption { transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+  <a class="back-link" href="index.html">Course Guide</a>
+  <p class="header-eyebrow">Snyder &amp; Meister · May 2026</p>
+  <h1 class="header-title"><em>England Boys Trip</em><br>Photo Gallery</h1>
+  <div class="header-rule"></div>
+  <p class="header-sub">Six courses · The fairways, the greens, the clubhouses</p>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand-row">
+    <div class="nav-brand">Photo Gallery</div>
+    <a href="index.html" class="nav-home-link">← Course Guide</a>
+  </div>
+  <div class="nav-inner">
+    <a href="#hillside">Hillside<span class="nd">Wed 13 May</span></a>
+    <a href="#lytham">Royal Lytham<span class="nd">Thu 14 May</span></a>
+    <a href="#liverpool">Royal Liverpool<span class="nd">Fri 15 May</span></a>
+    <a href="#westlancs">West Lancs<span class="nd">Sat 16 May</span></a>
+    <a href="#sa">S&amp;A<span class="nd">Sun 17 May</span></a>
+    <a href="#birkdale">Royal Birkdale<span class="nd">Mon 18 May</span></a>
+  </div>
+</nav>
+
+<!-- ══ HILLSIDE ══ -->
+<section class="club-section" id="hillside">
+  <div class="club-header">
+    <div class="club-num">01</div>
+    <div class="club-header-inner">
+      <div class="club-date-badge">Wednesday, 13 May 2026</div>
+      <h2 class="club-name">Hillside Golf Club</h2>
+      <p class="club-tagline">The Hidden Gem of the Sefton Coast</p>
+    </div>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-item wide"><img src="images/hillside/hole-10-panorama.jpg" alt="Hillside hole 10 panorama" loading="lazy"><div class="photo-caption">10th Hole — Panorama</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/hillside/hole-2.jpg" alt="Hillside hole 2" loading="lazy"><div class="photo-caption">2nd Hole</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/hillside/hole-3.jpg" alt="Hillside hole 3" loading="lazy"><div class="photo-caption">3rd Hole</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/hillside/hole-4.jpg" alt="Hillside hole 4" loading="lazy"><div class="photo-caption">4th Hole</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/hillside/clubhouse.jpg" alt="Hillside clubhouse" loading="lazy"><div class="photo-caption">Clubhouse</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/hillside/course.jpg" alt="Hillside course" loading="lazy"><div class="photo-caption">The Course</div><div class="error-msg">Photo unavailable</div></div>
+  </div>
+</section>
+
+<!-- ══ ROYAL LYTHAM ══ -->
+<section class="club-section" id="lytham">
+  <div class="club-header">
+    <div class="club-num">02</div>
+    <div class="club-header-inner">
+      <div class="club-date-badge">Thursday, 14 May 2026</div>
+      <h2 class="club-name">Royal Lytham &amp; St Annes</h2>
+      <p class="club-tagline">Where Open History Was Written in Red Brick and Rough</p>
+    </div>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-item wide"><img src="images/lytham/open.jpg" alt="Royal Lytham The Open Championship" loading="lazy"><div class="photo-caption">The Open Championship</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/lytham/hole-4.jpg" alt="Royal Lytham hole 4" loading="lazy"><div class="photo-caption">4th Hole</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/lytham/clubhouse.jpg" alt="Royal Lytham clubhouse" loading="lazy"><div class="photo-caption">The Dormy House</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/lytham/senior-open.jpg" alt="Royal Lytham Senior Open" loading="lazy"><div class="photo-caption">Senior Open 2019</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/lytham/els.jpg" alt="Ernie Els at Royal Lytham" loading="lazy"><div class="photo-caption">Ernie Els — The 141st Open</div><div class="error-msg">Photo unavailable</div></div>
+  </div>
+</section>
+
+<!-- ══ ROYAL LIVERPOOL ══ -->
+<section class="club-section" id="liverpool">
+  <div class="club-header">
+    <div class="club-num">03</div>
+    <div class="club-header-inner">
+      <div class="club-date-badge">Friday, 15 May 2026</div>
+      <h2 class="club-name">Royal Liverpool Golf Club</h2>
+      <p class="club-tagline">The Birthplace of British Golf's Grand Stage</p>
+    </div>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-item wide"><img src="images/liverpool/course.jpg" alt="Royal Liverpool course" loading="lazy"><div class="photo-caption">The Fairways of Hoylake</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/liverpool/clubhouse.jpg" alt="Hoylake clubhouse" loading="lazy"><div class="photo-caption">The Clubhouse</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/liverpool/tiger.jpg" alt="Tiger Woods at Hoylake" loading="lazy"><div class="photo-caption">Tiger Woods — 2006 Open</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/liverpool/bobby-jones.jpg" alt="Bobby Jones at Hoylake" loading="lazy"><div class="photo-caption">Bobby Jones — Grand Slam 1930</div><div class="error-msg">Photo unavailable</div></div>
+  </div>
+</section>
+
+<!-- ══ WEST LANCASHIRE ══ -->
+<section class="club-section" id="westlancs">
+  <div class="club-header">
+    <div class="club-num">04</div>
+    <div class="club-header-inner">
+      <div class="club-date-badge">Saturday, 16 May 2026</div>
+      <h2 class="club-name">West Lancashire Golf Club</h2>
+      <p class="club-tagline">England's Unsung Links Masterpiece</p>
+    </div>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-item"><img src="images/westlancs/course.jpg" alt="West Lancashire course" loading="lazy"><div class="photo-caption">The Course</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/westlancs/view.jpg" alt="West Lancashire view" loading="lazy"><div class="photo-caption">Estuary Views</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/westlancs/golfer.jpg" alt="West Lancashire golf" loading="lazy"><div class="photo-caption">On the Links</div><div class="error-msg">Photo unavailable</div></div>
+  </div>
+</section>
+
+<!-- ══ SOUTHPORT & AINSDALE ══ -->
+<section class="club-section" id="sa">
+  <div class="club-header">
+    <div class="club-num">05</div>
+    <div class="club-header-inner">
+      <div class="club-date-badge">Sunday, 17 May 2026</div>
+      <h2 class="club-name">Southport &amp; Ainsdale Golf Club</h2>
+      <p class="club-tagline">The Ryder Cup's Forgotten Home</p>
+    </div>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-item wide"><img src="images/sa/5th-hole.jpg" alt="S&A 5th hole" loading="lazy"><div class="photo-caption">5th Hole</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/sa/4th-hole.jpg" alt="S&A 4th hole" loading="lazy"><div class="photo-caption">4th Hole</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/sa/5th-hole-2.jpg" alt="S&A 5th hole view" loading="lazy"><div class="photo-caption">5th Hole — Aerial</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/sa/6th-hole.jpg" alt="S&A 6th hole" loading="lazy"><div class="photo-caption">6th Hole</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/sa/clubhouse.jpg" alt="S&A clubhouse" loading="lazy"><div class="photo-caption">The Clubhouse</div><div class="error-msg">Photo unavailable</div></div>
+  </div>
+</section>
+
+<!-- ══ ROYAL BIRKDALE ══ -->
+<section class="club-section" id="birkdale">
+  <div class="club-header" style="background:linear-gradient(180deg,rgba(15,42,26,0.98) 0%,transparent 100%)">
+    <div class="club-num">06</div>
+    <div class="club-header-inner">
+      <div class="club-date-badge">Monday, 18 May 2026</div>
+      <h2 class="club-name">Royal Birkdale Golf Club</h2>
+      <p class="club-tagline">England's Premier Open Championship Venue</p>
+    </div>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-item wide"><img src="images/birkdale/the-open.jpg" alt="Royal Birkdale The Open" loading="lazy"><div class="photo-caption">Home of The Open Championship</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/birkdale/clubhouse-18th.jpg" alt="Royal Birkdale clubhouse and 18th green" loading="lazy"><div class="photo-caption">Clubhouse &amp; 18th Green</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/birkdale/from-the-dunes.jpg" alt="Royal Birkdale from the dunes" loading="lazy"><div class="photo-caption">From the Dunes</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/birkdale/hole-1.jpg" alt="Royal Birkdale hole 1" loading="lazy"><div class="photo-caption">1st Hole</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/birkdale/hole-4.jpg" alt="Royal Birkdale hole 4" loading="lazy"><div class="photo-caption">4th Hole</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/birkdale/hole-5.jpg" alt="Royal Birkdale hole 5" loading="lazy"><div class="photo-caption">5th Hole</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/birkdale/14th-green.jpg" alt="Royal Birkdale 14th green" loading="lazy"><div class="photo-caption">14th Green</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/birkdale/hole-15.jpg" alt="Royal Birkdale hole 15" loading="lazy"><div class="photo-caption">15th Hole</div><div class="error-msg">Photo unavailable</div></div>
+    <div class="photo-item"><img src="images/birkdale/2nd-green.jpg" alt="Royal Birkdale 2nd green" loading="lazy"><div class="photo-caption">2nd Green</div><div class="error-msg">Photo unavailable</div></div>
+  </div>
+</section>
+
+<!-- CREDITS -->
+<div class="credits">
+  <p>Photography courtesy of <a href="https://www.hillside-golfclub.co.uk" target="_blank">Hillside Golf Club</a> · <a href="https://www.royallytham.org" target="_blank">Royal Lytham &amp; St Annes</a> · <a href="https://www.royal-liverpool-golf.com" target="_blank">Royal Liverpool</a> · <a href="https://www.westlancashiregolf.co.uk" target="_blank">West Lancashire</a> · <a href="https://www.sandagolfclub.co.uk" target="_blank">Southport &amp; Ainsdale</a> · <a href="https://royalbirkdale.com" target="_blank">Royal Birkdale</a> · <a href="https://commons.wikimedia.org" target="_blank">Wikimedia Commons</a></p>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <a href="index.html">← Course Guide</a>
+  <a href="games.html">Games &amp; Formats</a>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lbClose">×</span>
+  <img id="lbImg" src="" alt="">
+  <div class="lightbox-caption" id="lbCaption"></div>
+</div>
+
+<script>
+  // Scroll reveal
+  const obs = new IntersectionObserver(e => {
+    e.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); obs.unobserve(el.target); } });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.club-section').forEach(el => obs.observe(el));
+
+  // Error handling — hide broken images gracefully
+  document.querySelectorAll('.photo-item img').forEach(img => {
+    img.addEventListener('error', function() {
+      this.classList.add('error');
+      this.closest('.photo-item').classList.add('has-error');
+    });
+  });
+
+  // Lightbox
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCaption = document.getElementById('lbCaption');
+
+  document.querySelectorAll('.photo-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      const cap = item.querySelector('.photo-caption');
+      if (!img || item.classList.contains('has-error')) return;
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lbCaption.textContent = cap ? cap.textContent : '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  lb.addEventListener('click', closeLightbox);
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  function closeLightbox() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { lbImg.src = ''; }, 300);
+  }
+</script>
+</body>
+</html>
