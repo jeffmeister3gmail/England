@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>England Boys Trip 2026 — Games &amp; Formats</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep:#0F2A1A;--green-dark:#1B4D2E;--green-mid:#2E7D46;
+    --gold:#C9A84C;--gold-light:#E8C97A;--gold-pale:#F5E9C8;
+    --cream:#FAF8F3;--cream-dark:#F0EDE4;--ink:#1A1A1A;
+    --text-body:#2C2C2C;--text-mid:#555;--white:#FFFFFF;
+    --rule:rgba(201,168,76,0.3);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;overflow-x:clip;}
+  body{background:var(--cream);color:var(--text-body);font-family:'Crimson Text',Georgia,serif;font-size:18px;line-height:1.75;overflow-x:clip;}
+
+  /* HEADER */
+  .page-header{background:var(--green-deep);padding:48px 40px 40px;text-align:center;border-bottom:2px solid var(--rule);position:relative;overflow:hidden;}
+  .page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 120%,rgba(46,125,70,0.2) 0%,transparent 70%);pointer-events:none;}
+  .back-link{display:inline-flex;align-items:center;gap:6px;font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;margin-bottom:24px;transition:color 0.2s;}
+  .back-link:hover{color:var(--gold);}
+  .back-link::before{content:'←';font-size:14px;}
+  .header-eyebrow{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .header-title{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:12px;}
+  .header-title em{font-style:italic;color:var(--gold-light);}
+  .header-rule{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto;}
+  .header-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,0.5);}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:100;background:var(--green-deep);border-bottom:1px solid var(--rule);}
+  .nav-inner{display:flex;flex-wrap:wrap;padding:0 24px;max-width:1100px;margin:0 auto;}
+  .nav a{font-family:'Cormorant Garamond',serif;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;padding:9px 10px;display:flex;flex-direction:column;align-items:center;gap:1px;border-bottom:2px solid transparent;transition:color 0.2s;white-space:nowrap;}
+  .nav a .nd{font-size:8px;color:rgba(255,255,255,0.28);letter-spacing:0.1em;}
+  .nav a:hover{color:var(--gold-light);border-bottom-color:var(--gold);}
+
+  /* ROUND */
+  .round{border-bottom:2px solid rgba(0,0,0,0.07);opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+  .round.visible{opacity:1;transform:none;}
+  .round-header{background:var(--green-dark);padding:28px 40px 24px;position:relative;overflow:hidden;}
+  .round-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .rhi{max-width:1100px;margin:0 auto;position:relative;}
+  .round-num{font-family:'Playfair Display',serif;font-size:88px;font-weight:900;color:rgba(255,255,255,0.04);position:absolute;right:0;top:-12px;line-height:1;pointer-events:none;}
+  .round-date-badge{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);padding:4px 12px;margin-bottom:10px;}
+  .round-title{font-family:'Playfair Display',serif;font-size:clamp(22px,3.5vw,34px);font-weight:700;color:var(--white);margin-bottom:8px;}
+  .round-meta{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:0.08em;color:rgba(255,255,255,0.45);display:flex;flex-wrap:wrap;gap:4px 20px;align-items:center;}
+  .round-meta span::before{content:'·  ';color:var(--gold);}
+  .round-meta span:first-child::before{content:'';}
+  .round-buyin{margin-left:auto;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--gold);}
+
+  /* FORMAT BANNER */
+  .format-banner{background:var(--green-deep);border-bottom:1px solid var(--rule);padding:0 40px;}
+  .fbi{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  .fb{padding:20px 24px 20px 0;}
+  .fb+.fb{padding-left:24px;padding-right:0;border-left:1px solid var(--rule);}
+  .fb-label{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+  .fb-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:6px;}
+  .fb-desc{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.55;}
+
+  /* ROUND BODY */
+  .round-body{padding:28px 40px 36px;max-width:1100px;margin:0 auto;}
+  .groups-label{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--green-mid);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .groups-label::after{content:'';flex:1;height:1px;background:var(--rule);}
+  .groups{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
+
+  /* GROUP CARD */
+  .gc{background:var(--white);border:1px solid rgba(0,0,0,0.07);box-shadow:0 2px 8px rgba(0,0,0,0.04);overflow:hidden;}
+  .gc-top{background:var(--green-deep);padding:12px 18px;display:flex;align-items:baseline;gap:12px;justify-content:space-between;}
+  .gc-tee{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--gold);}
+  .gc-players{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+  .gc-body{padding:16px 18px;}
+
+  /* PAIRINGS */
+  .pairings{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+  .pr{display:grid;grid-template-columns:1fr auto 1fr auto;align-items:center;gap:8px;padding:10px 12px;}
+  .pr.pa{background:rgba(46,125,70,0.08);border-left:3px solid var(--green-mid);}
+  .pr.pb{background:rgba(201,168,76,0.08);border-left:3px solid var(--gold);}
+  .pr-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--ink);}
+  .pr-hdcp{font-family:'Cormorant Garamond',serif;font-size:12px;color:var(--text-mid);text-align:right;}
+  .pr-vs{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:0.1em;color:var(--text-mid);text-align:center;padding:2px 0;}
+
+  /* STAKES */
+  .stakes-lbl{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-mid);margin-bottom:8px;}
+  .stakes{display:flex;flex-direction:column;gap:6px;}
+  .sr{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;font-size:14px;}
+  .sr.p1{background:var(--green-deep);}
+  .sr.p2{background:var(--gold-pale);}
+  .sr.p1 .st{color:rgba(255,255,255,0.85);}
+  .sr.p2 .st{color:#4A3800;}
+  .si{flex-shrink:0;font-size:13px;margin-top:1px;}
+
+  /* SIDE GAMES */
+  .stakes-section{background:var(--green-deep);border:1px solid rgba(201,168,76,0.15);padding:16px 20px;margin-bottom:12px;}
+  .stakes-section-lbl{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+  .stakes-section-lbl::after{content:'';flex:1;height:1px;background:var(--rule);max-width:60px;}
+  .stakes-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .stake-block{padding:12px 16px;}
+  .stake-block.p1{background:rgba(255,255,255,0.06);}
+  .stake-block.p2{background:rgba(201,168,76,0.08);}
+  .stake-block-label{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:5px;}
+  .stake-block-value{font-size:15px;color:rgba(255,255,255,0.85);display:flex;align-items:flex-start;gap:8px;line-height:1.4;}
+  @media(max-width:700px){.stakes-grid{grid-template-columns:1fr;}}
+  .side-games{background:var(--cream-dark);border:1px solid rgba(0,0,0,0.06);padding:16px 20px;}
+  .side-lbl{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--green-mid);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+  .side-lbl::after{content:'';flex:1;height:1px;background:var(--rule);max-width:60px;}
+  .side-list{display:flex;flex-direction:column;gap:8px;}
+  .side-item{display:flex;gap:10px;align-items:flex-start;font-size:15px;}
+  .side-item::before{content:'⛳';flex-shrink:0;font-size:13px;margin-top:2px;}
+
+  /* FORMAT REF */
+  .formats-ref{background:var(--green-deep);padding:52px 40px;border-top:1px solid var(--rule);}
+  .fri{max-width:1100px;margin:0 auto;}
+  .fr-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);margin-bottom:6px;text-align:center;}
+  .fr-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:rgba(255,255,255,0.45);text-align:center;margin-bottom:32px;}
+  .fr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;}
+  .frc{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);padding:20px;}
+  .frc-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--gold-light);margin-bottom:8px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .frc-used{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-mid);background:rgba(46,125,70,0.15);padding:2px 8px;flex-shrink:0;margin-top:2px;white-space:nowrap;}
+  .frc-desc{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;}
+
+  .footer{background:var(--green-deep);border-top:1px solid var(--rule);padding:28px 40px;text-align:center;}
+  .footer a{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+  .footer a:hover{color:var(--gold);}
+
+  @media(max-width:700px){
+    .page-header,.format-banner,.round-header,.round-body,.formats-ref,.footer{padding-left:16px;padding-right:16px;}
+    .groups{grid-template-columns:1fr;}
+    .fbi{grid-template-columns:1fr;}
+    .fb+.fb{border-left:none;border-top:1px solid var(--rule);padding-left:0;padding-top:16px;}
+    .round-buyin{margin-left:0;}
+    .round-num{display:none;}
+    .fr-grid{grid-template-columns:1fr;}
+    .pr{grid-template-columns:1fr auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <a class="back-link" href="index.html">Course Guide</a>
+  <p class="header-eyebrow">Snyder &amp; Meister · May 2026</p>
+  <h1 class="header-title"><em>England Boys Trip</em><br>Games &amp; Formats</h1>
+  <div class="header-rule"></div>
+  <p class="header-sub">Six rounds · Six courses · Every game explained</p>
+</header>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#hillside">Hillside<span class="nd">Wed 13 May</span></a>
+    <a href="#lytham">Royal Lytham<span class="nd">Thu 14 May</span></a>
+    <a href="#liverpool">Royal Liverpool<span class="nd">Fri 15 May</span></a>
+    <a href="#westlancs">West Lancs<span class="nd">Sat 16 May</span></a>
+    <a href="#sa">S&amp;A<span class="nd">Sun 17 May</span></a>
+    <a href="#birkdale">Royal Birkdale<span class="nd">Mon 18 May</span></a>
+  </div>
+</nav>
+
+<!-- ══ HILLSIDE · Foursome vs Foursome · Cha-Cha-Cha ══ -->
+<section class="round" id="hillside">
+  <div class="round-header"><div class="round-num">01</div><div class="rhi">
+    <div class="round-date-badge">Wednesday, 13 May 2026</div>
+    <h2 class="round-title">Hillside Golf Club</h2>
+    <div class="round-meta"><span>Blue Tees · 6,574 yds</span><span>Rating 72.8</span><span>Slope 132</span><span class="round-buyin">$100 / Guy</span></div>
+  </div></div>
+
+  <div class="format-banner"><div class="fbi">
+    <div class="fb"><div class="fb-label">Competition</div><div class="fb-name">Foursome vs. Foursome</div><div class="fb-desc">Both groups of four compete as a team. Combined net scores are totalled and the winning foursome takes the pot.</div></div>
+    <div class="fb"><div class="fb-label">Scoring Format</div><div class="fb-name">Cha-Cha-Cha</div><div class="fb-desc">Progressive ball counting within the foursome: Hole 1 = best 1 ball · Hole 2 = best 2 balls · Hole 3 = best 3 balls · then repeats throughout the round.</div></div>
+  </div></div>
+
+  <div class="round-body">
+    <div class="groups-label">Tee Time Groups</div>
+    <div class="groups">
+      <div class="gc"><div class="gc-top"><span class="gc-tee">2:00 PM</span><span class="gc-players">Snyder · Meister · Kurtz · Burns</span></div>
+        <div class="gc-body"></div>
+      </div>
+      <div class="gc"><div class="gc-top"><span class="gc-tee">2:10 PM</span><span class="gc-players">CJ · Piche · Amar · Demmer</span></div>
+        <div class="gc-body"></div>
+      </div>
+    </div>
+    <div class="stakes-section"><div class="stakes-section-lbl">Stakes</div><div class="stakes-grid">
+      <div class="stake-block p1"><div class="stake-block-label">2:00 PM Group</div><div class="stake-block-value"><span>💰</span>$50 game — Foursome vs. Foursome, winners take all</div></div>
+      <div class="stake-block p2"><div class="stake-block-label">2:10 PM Group</div><div class="stake-block-value"><span>💰</span>$50 individual net skins</div></div>
+    </div></div>
+    <div class="side-games"><div class="side-lbl">Side Games</div><div class="side-list">
+      <div class="side-item"><strong>Oozles &amp; Foozles:</strong>&nbsp;Played on par-3 holes only. The player closest to the pin (the Oozle) wins $5 from each player in the group if they 2-putt or better. If that same player takes 3 or more putts (the Foozle), they owe every other player $5.</div>
+      <div class="side-item"><strong>Gross Birdie Pot:</strong>&nbsp;$10 per gross birdie goes into a running pot across all six rounds. The last player to make a gross birdie on the trip wins the entire pot.</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ══ ROYAL LYTHAM · Two Man Teams · Stableford ══ -->
+<section class="round" id="lytham">
+  <div class="round-header"><div class="round-num">02</div><div class="rhi">
+    <div class="round-date-badge">Thursday, 14 May 2026</div>
+    <h2 class="round-title">Royal Lytham &amp; St Annes</h2>
+    <div class="round-meta"><span>Green Tees · 6,346 yds</span><span>Rating 72.5</span><span>Slope 139</span><span class="round-buyin">$100 / Guy</span></div>
+  </div></div>
+
+  <div class="format-banner"><div class="fbi">
+    <div class="fb"><div class="fb-label">Competition</div><div class="fb-name">Two Man Teams</div><div class="fb-desc">Lowest handicap paired with highest, 2nd lowest with 3rd lowest within each group. Best net ball of the pair counts per hole. Two teams go head-to-head.</div></div>
+    <div class="fb"><div class="fb-label">Scoring Format</div><div class="fb-name">Stableford</div><div class="fb-desc">Points per net score: Birdie = 3 · Par = 2 · Bogey = 1 · Double+ = 0. Highest point total wins. Pick up on bad holes and move on.</div></div>
+  </div></div>
+
+  <div class="round-body">
+    <div class="groups-label">Tee Time Groups &amp; Pairings</div>
+    <div class="groups">
+      <div class="gc"><div class="gc-top"><span class="gc-tee">11:10 AM</span><span class="gc-players">Snyder · Burns · CJ · Amar</span></div>
+        <div class="gc-body">
+          <div class="pairings">
+            <div class="pr pa"><span class="pr-name">Snyder</span><span class="pr-hdcp">8.7</span><span class="pr-name" style="text-align:right">Burns</span><span class="pr-hdcp">17.8</span></div>
+            <div class="pr-vs">vs.</div>
+            <div class="pr pb"><span class="pr-name">CJ</span><span class="pr-hdcp">9.1</span><span class="pr-name" style="text-align:right">Amar</span><span class="pr-hdcp">15.9</span></div>
+          </div>
+          </div>
+        </div>
+      <div class="gc"><div class="gc-top"><span class="gc-tee">11:20 AM</span><span class="gc-players">Piche · Kurtz · Meister · Demmer</span></div>
+        <div class="gc-body">
+          <div class="pairings">
+            <div class="pr pa"><span class="pr-name">Meister</span><span class="pr-hdcp">7.7</span><span class="pr-name" style="text-align:right">Demmer</span><span class="pr-hdcp">14.4</span></div>
+            <div class="pr-vs">vs.</div>
+            <div class="pr pb"><span class="pr-name">Piche</span><span class="pr-hdcp">11.0</span><span class="pr-name" style="text-align:right">Kurtz</span><span class="pr-hdcp">12.7</span></div>
+          </div>
+          </div>
+        </div>
+    </div>
+    <div class="stakes-section"><div class="stakes-section-lbl">Stakes</div><div class="stakes-grid">
+      <div class="stake-block p1"><div class="stake-block-label">11:10 AM Group</div><div class="stake-block-value"><span>💰</span>$50 game — winning pair takes all</div></div>
+      <div class="stake-block p2"><div class="stake-block-label">11:20 AM Group</div><div class="stake-block-value"><span>💰</span>$50 individual net skins</div></div>
+    </div></div>
+    <div class="side-games"><div class="side-lbl">Side Games</div><div class="side-list">
+      <div class="side-item"><strong>Oozles &amp; Foozles:</strong>&nbsp;Played on par-3 holes only. The player closest to the pin (the Oozle) wins $5 from each player in the group if they 2-putt or better. If that same player takes 3 or more putts (the Foozle), they owe every other player $5.</div>
+      <div class="side-item"><strong>Gross Birdie Pot:</strong>&nbsp;$10 per gross birdie goes into a running pot across all six rounds. The last player to make a gross birdie on the trip wins the entire pot.</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ══ ROYAL LIVERPOOL · Foursome vs Foursome · Lone Ranger ══ -->
+<section class="round" id="liverpool">
+  <div class="round-header"><div class="round-num">03</div><div class="rhi">
+    <div class="round-date-badge">Friday, 15 May 2026</div>
+    <h2 class="round-title">Royal Liverpool at Hoylake</h2>
+    <div class="round-meta"><span>Yellow Tees · 6,331 yds</span><span>Rating 72.2</span><span>Slope 139</span><span class="round-buyin">$100 / Guy</span></div>
+  </div></div>
+
+  <div class="format-banner"><div class="fbi">
+    <div class="fb"><div class="fb-label">Competition</div><div class="fb-name">Foursome vs. Foursome</div><div class="fb-desc">Both foursomes compete head-to-head. Combined net scores are totalled across the group and the winning foursome takes the pot.</div></div>
+    <div class="fb"><div class="fb-label">Scoring Format</div><div class="fb-name">Lone Ranger</div><div class="fb-desc">One player per hole is the Lone Ranger — rotating positions 1→4, repeating through 18. The Lone Ranger's score always counts, plus the best ball of the other three. Two balls in play every hole.</div></div>
+  </div></div>
+
+  <div class="round-body">
+    <div class="groups-label">Tee Time Groups</div>
+    <div class="groups">
+      <div class="gc"><div class="gc-top"><span class="gc-tee">9:30 AM</span><span class="gc-players">Snyder · Piche · Amar · Meister</span></div>
+        <div class="gc-body"></div>
+      </div>
+      <div class="gc"><div class="gc-top"><span class="gc-tee">9:40 AM</span><span class="gc-players">Demmer · Burns · CJ · Kurtz</span></div>
+        <div class="gc-body"></div>
+      </div>
+    </div>
+    <div class="stakes-section"><div class="stakes-section-lbl">Stakes</div><div class="stakes-grid">
+      <div class="stake-block p1"><div class="stake-block-label">9:30 AM Group</div><div class="stake-block-value"><span>💰</span>$50 game — Foursome vs. Foursome, winners take all</div></div>
+      <div class="stake-block p2"><div class="stake-block-label">9:40 AM Group</div><div class="stake-block-value"><span>💰</span>$50 individual net skins</div></div>
+    </div></div>
+    <div class="side-games"><div class="side-lbl">Side Games</div><div class="side-list">
+      <div class="side-item"><strong>Lone Ranger rotation:</strong>&nbsp;Player 1 is Lone Ranger on holes 1, 5, 9, 13, 17 · Player 2 on holes 2, 6, 10, 14, 18 · Player 3 on holes 3, 7, 11, 15 · Player 4 on holes 4, 8, 12, 16. Know your hole before you tee it up.</div>
+      <div class="side-item"><strong>Oozles &amp; Foozles:</strong>&nbsp;Played on par-3 holes only. The player closest to the pin (the Oozle) wins $5 from each player in the group if they 2-putt or better. If that same player takes 3 or more putts (the Foozle), they owe every other player $5.</div>
+      <div class="side-item"><strong>Gross Birdie Pot:</strong>&nbsp;$10 per gross birdie goes into a running pot across all six rounds. The last player to make a gross birdie on the trip wins the entire pot.</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ══ WEST LANCASHIRE · Two Man Teams · One Net Ball ══ -->
+<section class="round" id="westlancs">
+  <div class="round-header"><div class="round-num">04</div><div class="rhi">
+    <div class="round-date-badge">Saturday, 16 May 2026</div>
+    <h2 class="round-title">West Lancashire Golf Club</h2>
+    <div class="round-meta"><span>Yellow Tees · 6,246 yds</span><span>Rating 71.4</span><span>Slope 135</span><span class="round-buyin">$100 / Guy</span></div>
+  </div></div>
+
+  <div class="format-banner"><div class="fbi">
+    <div class="fb"><div class="fb-label">Competition</div><div class="fb-name">Two Man Teams</div><div class="fb-desc">Lowest handicap with highest, 2nd lowest with 3rd lowest in each group. Teams compete head-to-head within the foursome.</div></div>
+    <div class="fb"><div class="fb-label">Scoring Format</div><div class="fb-name">One Net Ball + Both on Par 3s</div><div class="fb-desc">Par 4s &amp; Par 5s: only the best net ball of the pair counts. Par 3s: both net balls count — both players must deliver on the short holes. No hiding.</div></div>
+  </div></div>
+
+  <div class="round-body">
+    <div class="groups-label">Tee Time Groups &amp; Pairings</div>
+    <div class="groups">
+      <div class="gc"><div class="gc-top"><span class="gc-tee">3:45 PM</span><span class="gc-players">Snyder · Amar · Kurtz · Demmer</span></div>
+        <div class="gc-body">
+          <div class="pairings">
+            <div class="pr pa"><span class="pr-name">Snyder</span><span class="pr-hdcp">8.7</span><span class="pr-name" style="text-align:right">Amar</span><span class="pr-hdcp">15.9</span></div>
+            <div class="pr-vs">vs.</div>
+            <div class="pr pb"><span class="pr-name">Kurtz</span><span class="pr-hdcp">12.7</span><span class="pr-name" style="text-align:right">Demmer</span><span class="pr-hdcp">14.4</span></div>
+          </div>
+          </div>
+        </div>
+      <div class="gc"><div class="gc-top"><span class="gc-tee">3:54 PM</span><span class="gc-players">CJ · Piche · Meister · Burns</span></div>
+        <div class="gc-body">
+          <div class="pairings">
+            <div class="pr pa"><span class="pr-name">Meister</span><span class="pr-hdcp">7.7</span><span class="pr-name" style="text-align:right">Burns</span><span class="pr-hdcp">17.8</span></div>
+            <div class="pr-vs">vs.</div>
+            <div class="pr pb"><span class="pr-name">CJ</span><span class="pr-hdcp">9.1</span><span class="pr-name" style="text-align:right">Piche</span><span class="pr-hdcp">11.0</span></div>
+          </div>
+          </div>
+        </div>
+    </div>
+    <div class="stakes-section"><div class="stakes-section-lbl">Stakes</div><div class="stakes-grid">
+      <div class="stake-block p1"><div class="stake-block-label">3:45 PM Group</div><div class="stake-block-value"><span>💰</span>$50 game — winning pair takes all</div></div>
+      <div class="stake-block p2"><div class="stake-block-label">3:54 PM Group</div><div class="stake-block-value"><span>💰</span>$50 individual net skins</div></div>
+    </div></div>
+    <div class="side-games"><div class="side-lbl">Side Games</div><div class="side-list">
+      <div class="side-item"><strong>Oozles &amp; Foozles:</strong>&nbsp;Played on par-3 holes only. The player closest to the pin wins $5 from each player if they 2-putt or better. 3 or more putts and they owe everyone $5. Note: on today's scoring format both net balls also count on par 3s — par 3s carry double weight.</div>
+      <div class="side-item"><strong>Gross Birdie Pot:</strong>&nbsp;$10 per gross birdie goes into a running pot across all six rounds. The last player to make a gross birdie on the trip wins the entire pot.</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ══ S&A · Two Man Teams · Team Wheels ══ -->
+<section class="round" id="sa">
+  <div class="round-header"><div class="round-num">05</div><div class="rhi">
+    <div class="round-date-badge">Sunday, 17 May 2026</div>
+    <h2 class="round-title">Southport &amp; Ainsdale Golf Club</h2>
+    <div class="round-meta"><span>Yellow Tees · 6,389 yds</span><span>Rating 72.0</span><span>Slope 134</span><span class="round-buyin">$100 / Guy</span></div>
+  </div></div>
+
+  <div class="format-banner"><div class="fbi">
+    <div class="fb"><div class="fb-label">Competition</div><div class="fb-name">Two Man Teams</div><div class="fb-desc">Lowest handicap with highest, 2nd lowest with 3rd lowest in each group. Partners compete against each other using Team Wheels scoring.</div></div>
+    <div class="fb"><div class="fb-label">Scoring Format</div><div class="fb-name">Team Wheels</div><div class="fb-desc">All 6 possible two-man pairings within the foursome compete simultaneously: (1&amp;2), (1&amp;3), (1&amp;4), (2&amp;3), (2&amp;4), (3&amp;4). Every player is partnered with every other. Best pair over 18 holes wins.</div></div>
+  </div></div>
+
+  <div class="round-body">
+    <div class="groups-label">Tee Time Groups &amp; Pairings</div>
+    <div class="groups">
+      <div class="gc"><div class="gc-top"><span class="gc-tee">11:08 AM</span><span class="gc-players">Snyder · Burns · Demmer · Piche</span></div>
+        <div class="gc-body">
+          <div class="pairings">
+            <div class="pr pa"><span class="pr-name">Snyder</span><span class="pr-hdcp">8.7</span><span class="pr-name" style="text-align:right">Burns</span><span class="pr-hdcp">17.8</span></div>
+            <div class="pr-vs">vs.</div>
+            <div class="pr pb"><span class="pr-name">Piche</span><span class="pr-hdcp">11.0</span><span class="pr-name" style="text-align:right">Demmer</span><span class="pr-hdcp">14.4</span></div>
+          </div>
+          </div>
+        </div>
+      <div class="gc"><div class="gc-top"><span class="gc-tee">11:16 AM</span><span class="gc-players">Amar · Meister · CJ · Kurtz</span></div>
+        <div class="gc-body">
+          <div class="pairings">
+            <div class="pr pa"><span class="pr-name">Meister</span><span class="pr-hdcp">7.7</span><span class="pr-name" style="text-align:right">Amar</span><span class="pr-hdcp">15.9</span></div>
+            <div class="pr-vs">vs.</div>
+            <div class="pr pb"><span class="pr-name">CJ</span><span class="pr-hdcp">9.1</span><span class="pr-name" style="text-align:right">Kurtz</span><span class="pr-hdcp">12.7</span></div>
+          </div>
+          </div>
+        </div>
+    </div>
+    <div class="stakes-section"><div class="stakes-section-lbl">Stakes</div><div class="stakes-grid">
+      <div class="stake-block p1"><div class="stake-block-label">11:08 AM Group</div><div class="stake-block-value"><span>💰</span>$50 game — winning pair takes all</div></div>
+      <div class="stake-block p2"><div class="stake-block-label">11:16 AM Group</div><div class="stake-block-value"><span>💰</span>$50 individual net skins</div></div>
+    </div></div>
+    <div class="side-games"><div class="side-lbl">Side Games</div><div class="side-list">
+      <div class="side-item"><strong>Oozles &amp; Foozles:</strong>&nbsp;Played on par-3 holes only. The player closest to the pin (the Oozle) wins $5 from each player in the group if they 2-putt or better. If that same player takes 3 or more putts (the Foozle), they owe every other player $5.</div>
+      <div class="side-item"><strong>Gross Birdie Pot:</strong>&nbsp;$10 per gross birdie goes into a running pot across all six rounds. The last player to make a gross birdie on the trip wins the entire pot.</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ══ ROYAL BIRKDALE · Foursome vs Foursome · Quota ══ -->
+<section class="round" id="birkdale">
+  <div class="round-header" style="background:linear-gradient(135deg,#0F2A1A 0%,#1B4D2E 100%);"><div class="round-num">06</div><div class="rhi">
+    <div class="round-date-badge">Monday, 18 May 2026</div>
+    <h2 class="round-title">Royal Birkdale Golf Club</h2>
+    <div class="round-meta"><span>Blue Tees · 6,206 yds</span><span>Rating 71.8</span><span>Slope 143</span><span class="round-buyin">$100 / Guy</span></div>
+  </div></div>
+
+  <div class="format-banner"><div class="fbi">
+    <div class="fb"><div class="fb-label">Competition</div><div class="fb-name">Foursome vs. Foursome</div><div class="fb-desc">A fitting finale — both foursomes compete as a team at the home of The Open. Combined net scores determine the winning group.</div></div>
+    <div class="fb"><div class="fb-label">Scoring Format</div><div class="fb-name">Quota Game</div><div class="fb-desc">Each player's quota = 36 minus playing handicap. Earn Stableford points per hole. The player who most exceeds their personal quota wins. Levels the field completely — anyone can win this one.</div></div>
+  </div></div>
+
+  <div class="round-body">
+    <div class="groups-label">Tee Time Groups</div>
+    <div class="groups">
+      <div class="gc"><div class="gc-top"><span class="gc-tee">1:00 PM</span><span class="gc-players">Snyder · CJ · Meister · Demmer</span></div>
+        <div class="gc-body"></div>
+      </div>
+      <div class="gc"><div class="gc-top"><span class="gc-tee">1:10 PM</span><span class="gc-players">Kurtz · Piche · Amar · Burns</span></div>
+        <div class="gc-body"></div>
+      </div>
+    </div>
+    <div class="stakes-section"><div class="stakes-section-lbl">Stakes</div><div class="stakes-grid">
+      <div class="stake-block p1"><div class="stake-block-label">1:00 PM Group</div><div class="stake-block-value"><span>💰</span>$50 game — Foursome vs. Foursome, winners take all</div></div>
+      <div class="stake-block p2"><div class="stake-block-label">1:10 PM Group</div><div class="stake-block-value"><span>💰</span>$50 individual net skins</div></div>
+    </div></div>
+    <div class="side-games"><div class="side-lbl">Side Games &amp; Quota Reference</div><div class="side-list">
+      <div class="side-item"><strong>Personal Quotas:</strong>&nbsp;Meister 28.3 · Snyder 27.3 · CJ 26.9 · Piche 25.0 · Kurtz 23.3 · Demmer 21.6 · Amar 20.1 · Burns 18.2</div>
+      <div class="side-item"><strong>Oozles &amp; Foozles:</strong>&nbsp;Played on par-3 holes only. The player closest to the pin (the Oozle) wins $5 from each player in the group if they 2-putt or better. If that same player takes 3 or more putts (the Foozle), they owe every other player $5.</div>
+      <div class="side-item"><strong>Gross Birdie Pot:</strong>&nbsp;$10 per gross birdie goes into the pot — and since this is the final round, whoever makes the last gross birdie of the entire trip takes home the whole thing.</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- FORMAT REFERENCE -->
+<section class="formats-ref">
+  <div class="fri">
+    <h2 class="fr-title">Format Quick Reference</h2>
+    <p class="fr-sub">Everything you need on one page</p>
+    <div class="fr-grid">
+      <div class="frc"><div class="frc-name">Cha-Cha-Cha<span class="frc-used">Hillside</span></div><div class="frc-desc">Hole 1: best 1 ball. Hole 2: best 2 balls. Hole 3: best 3 balls. Cycle repeats for all 18 holes. Both groups play this format at Hillside.</div></div>
+      <div class="frc"><div class="frc-name">Stableford<span class="frc-used">Lytham</span></div><div class="frc-desc">Points by net score: Birdie = 3 · Par = 2 · Bogey = 1 · Double+ = 0. Highest total wins. Pick up on bad holes — they cost far less than in stroke play.</div></div>
+      <div class="frc"><div class="frc-name">Lone Ranger<span class="frc-used">Hoylake</span></div><div class="frc-desc">One player is the Lone Ranger per hole, rotating 1→4 through the round. Their score always counts, plus the best ball of the other three. Two balls every hole.</div></div>
+      <div class="frc"><div class="frc-name">One Net Ball + Both on Par 3s<span class="frc-used">West Lancs</span></div><div class="frc-desc">Par 4s &amp; 5s: best net ball of the pair counts. Par 3s: both net balls count. Par 3s are high-stakes — both players must deliver.</div></div>
+      <div class="frc"><div class="frc-name">Team Wheels<span class="frc-used">S&amp;A</span></div><div class="frc-desc">All 6 possible two-man pairings within the foursome compete simultaneously. Everyone is partnered with everyone. Best pair over 18 wins.</div></div>
+      <div class="frc"><div class="frc-name">Quota Game<span class="frc-used">Birkdale</span></div><div class="frc-desc">Quota = 36 minus playing handicap. Earn Stableford points per hole. Player who most exceeds their quota wins. The great equaliser.</div></div>
+      <div class="frc"><div class="frc-name">Oozles &amp; Foozles<span class="frc-used">All rounds · Grp 1</span></div><div class="frc-desc">Played on par-3s only. Closest to the pin (Oozle) wins $5 from each player if they 2-putt or better. If they take 3+ putts (Foozle), they owe every other player $5.</div></div>
+      <div class="frc"><div class="frc-name">Gross Birdie Pot<span class="frc-used">All rounds · Grp 2</span></div><div class="frc-desc">$10 per gross birdie goes into a running pot across all six rounds. The last player to make a gross birdie on the entire trip wins the whole pot.</div></div>
+      <div class="frc"><div class="frc-name">Individual Net Skins<span class="frc-used">All rounds · Grp 2</span></div><div class="frc-desc">Best net score on each hole wins the skin. Ties carry over to the next hole. $50 total in play per round per group.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><a href="index.html">← Back to Course Guide</a></footer>
+
+<script>
+  const obs = new IntersectionObserver(e => {
+    e.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); obs.unobserve(el.target); } });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.round').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
