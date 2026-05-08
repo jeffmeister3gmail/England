@@ -78,12 +78,12 @@
 
   /* PAIRINGS */
   .pairings{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
-  .pr{display:grid;grid-template-columns:1fr auto 1fr auto;align-items:center;gap:8px;padding:10px 12px;}
+  .pr{display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:14px 16px;overflow:hidden;}
   .pr.pa{background:rgba(46,125,70,0.08);border-left:3px solid var(--green-mid);}
   .pr.pb{background:rgba(201,168,76,0.08);border-left:3px solid var(--gold);}
+  .pr-player{display:flex;align-items:baseline;gap:5px;white-space:nowrap;}
   .pr-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--ink);}
-  .pr-hdcp{font-family:'Cormorant Garamond',serif;font-size:12px;color:var(--text-mid);text-align:right;}
-  .pr-vs{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:0.1em;color:var(--text-mid);text-align:center;padding:2px 0;}
+  .pr-hdcp{font-family:'Cormorant Garamond',serif;font-size:12px;color:var(--text-mid);}
 
   /* STAKES */
   .stakes-lbl{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-mid);margin-bottom:8px;}
@@ -219,16 +219,16 @@
       <div class="gc"><div class="gc-top"><span class="gc-tee">11:10 AM</span><span class="gc-players">Snyder · Burns · CJ · Amar</span></div>
         <div class="gc-body">
           <div class="pairings">
-            <div class="pr pa"><span class="pr-name">Snyder</span><span class="pr-hdcp">8.7</span><span class="pr-name" style="text-align:right">Burns</span><span class="pr-hdcp">17.8</span></div>
-            <div class="pr pb"><span class="pr-name">CJ</span><span class="pr-hdcp">9.1</span><span class="pr-name" style="text-align:right">Amar</span><span class="pr-hdcp">15.9</span></div>
+            <div class="pr pa"><span class="pr-player"><span class="pr-name">Snyder</span><span class="pr-hdcp">8.7</span></span><span class="pr-player"><span class="pr-name">Burns</span><span class="pr-hdcp">17.8</span></span></div>
+            <div class="pr pb"><span class="pr-player"><span class="pr-name">CJ</span><span class="pr-hdcp">9.1</span></span><span class="pr-player"><span class="pr-name">Amar</span><span class="pr-hdcp">15.9</span></span></div>
           </div>
           </div>
         </div>
       <div class="gc"><div class="gc-top"><span class="gc-tee">11:20 AM</span><span class="gc-players">Piche · Kurtz · Meister · Demmer</span></div>
         <div class="gc-body">
           <div class="pairings">
-            <div class="pr pa"><span class="pr-name">Meister</span><span class="pr-hdcp">7.7</span><span class="pr-name" style="text-align:right">Demmer</span><span class="pr-hdcp">14.4</span></div>
-            <div class="pr pb"><span class="pr-name">Piche</span><span class="pr-hdcp">11.0</span><span class="pr-name" style="text-align:right">Kurtz</span><span class="pr-hdcp">12.7</span></div>
+            <div class="pr pa"><span class="pr-player"><span class="pr-name">Meister</span><span class="pr-hdcp">7.7</span></span><span class="pr-player"><span class="pr-name">Demmer</span><span class="pr-hdcp">14.4</span></span></div>
+            <div class="pr pb"><span class="pr-player"><span class="pr-name">Piche</span><span class="pr-hdcp">11.0</span></span><span class="pr-player"><span class="pr-name">Kurtz</span><span class="pr-hdcp">12.7</span></span></div>
           </div>
           </div>
         </div>
@@ -297,16 +297,16 @@
       <div class="gc"><div class="gc-top"><span class="gc-tee">3:45 PM</span><span class="gc-players">Snyder · Amar · Kurtz · Demmer</span></div>
         <div class="gc-body">
           <div class="pairings">
-            <div class="pr pa"><span class="pr-name">Snyder</span><span class="pr-hdcp">8.7</span><span class="pr-name" style="text-align:right">Amar</span><span class="pr-hdcp">15.9</span></div>
-            <div class="pr pb"><span class="pr-name">Kurtz</span><span class="pr-hdcp">12.7</span><span class="pr-name" style="text-align:right">Demmer</span><span class="pr-hdcp">14.4</span></div>
+            <div class="pr pa"><span class="pr-player"><span class="pr-name">Snyder</span><span class="pr-hdcp">8.7</span></span><span class="pr-player"><span class="pr-name">Amar</span><span class="pr-hdcp">15.9</span></span></div>
+            <div class="pr pb"><span class="pr-player"><span class="pr-name">Kurtz</span><span class="pr-hdcp">12.7</span></span><span class="pr-player"><span class="pr-name">Demmer</span><span class="pr-hdcp">14.4</span></span></div>
           </div>
           </div>
         </div>
       <div class="gc"><div class="gc-top"><span class="gc-tee">3:54 PM</span><span class="gc-players">CJ · Piche · Meister · Burns</span></div>
         <div class="gc-body">
           <div class="pairings">
-            <div class="pr pa"><span class="pr-name">Meister</span><span class="pr-hdcp">7.7</span><span class="pr-name" style="text-align:right">Burns</span><span class="pr-hdcp">17.8</span></div>
-            <div class="pr pb"><span class="pr-name">CJ</span><span class="pr-hdcp">9.1</span><span class="pr-name" style="text-align:right">Piche</span><span class="pr-hdcp">11.0</span></div>
+            <div class="pr pa"><span class="pr-player"><span class="pr-name">Meister</span><span class="pr-hdcp">7.7</span></span><span class="pr-player"><span class="pr-name">Burns</span><span class="pr-hdcp">17.8</span></span></div>
+            <div class="pr pb"><span class="pr-player"><span class="pr-name">CJ</span><span class="pr-hdcp">9.1</span></span><span class="pr-player"><span class="pr-name">Piche</span><span class="pr-hdcp">11.0</span></span></div>
           </div>
           </div>
         </div>
